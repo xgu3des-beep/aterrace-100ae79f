@@ -21,7 +21,7 @@ const Index = () => {
       {loading && <LoadingScreen onComplete={handleComplete} />}
       <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
         <Navbar />
-        <HeroSection />
+        <HeroSection ready={!loading} />
         <AboutSection />
         <CocktailsSection />
         <ExperienceSection />

@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { MapPin } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 
-const HeroSection = () => {
+const HeroSection = ({ ready = false }: { ready?: boolean }) => {
   const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
