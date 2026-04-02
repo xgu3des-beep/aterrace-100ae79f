@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { MapPin } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 
 const HeroSection = () => {
@@ -35,7 +36,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3 }}
         >
-          <span className="inline-block font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
+          <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
+            <MapPin className="w-3.5 h-3.5" />
             Parque de Avioso — Maia, Portugal
           </span>
         </motion.div>
@@ -46,7 +48,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.2 }}
         >
-          {t.hero.headline}
+          ✦ {t.hero.headline} ✦
         </motion.h1>
 
         <motion.p
@@ -55,7 +57,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.4 }}
         >
-          {t.hero.sub}
+          {t.hero.subBefore}<em className="italic font-display text-foreground">terrace</em>{t.hero.subAfter}
         </motion.p>
 
         <motion.div
