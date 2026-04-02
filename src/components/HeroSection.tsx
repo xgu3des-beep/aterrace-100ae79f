@@ -1,18 +1,27 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { useLang } from '@/contexts/LangContext';
 
 const HeroSection = () => {
   const { t } = useLang();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.85]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <video
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background with Parallax */}
+      <motion.video
         autoPlay
         loop
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ y: videoY }}
         src="/videos/hero-bg.mp4"
       />
       {/* Overlay for readability */}
