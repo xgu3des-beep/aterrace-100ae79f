@@ -34,7 +34,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
           <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
             <MapPin className="w-3.5 h-3.5" />
@@ -46,16 +46,16 @@ const HeroSection = () => {
           className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          ✦ {t.hero.headline} ✦
+          <span className="text-base md:text-2xl align-middle">✦</span> {t.hero.headline} <span className="text-base md:text-2xl align-middle">✦</span>
         </motion.h1>
 
         <motion.p
           className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3.4 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           {t.hero.subBefore}<em className="italic font-display text-foreground">terrace</em>{t.hero.subAfter}
         </motion.p>
@@ -64,7 +64,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3.6 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           <a
             href="#reservar"
