@@ -29,7 +29,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
               AVIOSO
             </motion.span>
             <motion.span
-              className="font-display text-3xl md:text-5xl italic text-gold"
+              className="font-display text-3xl md:text-5xl italic text-primary"
               initial={{ opacity: 0, width: 0 }}
               animate={phase >= 1 ? { opacity: 1, width: 'auto' } : {}}
               transition={{ duration: 0.8, ease: 'easeOut' }}

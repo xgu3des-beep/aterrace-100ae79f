@@ -25,7 +25,7 @@ const HeroSection = () => {
         src="/videos/hero-bg.mp4"
       />
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-background/60" />
+      <motion.div className="absolute inset-0 bg-background" style={{ opacity: overlayOpacity }} />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       
       {/* Content */}

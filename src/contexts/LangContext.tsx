@@ -101,7 +101,7 @@ const translations = {
       headline: 'Cocktails, Nature & Good Times',
       sub: 'A retreat where cocktail craft meets natural beauty. Relax on the terrace, breathe in the fresh air, and savour the moment.',
       cta: 'Reserve a Table',
-      cta2: 'View Menu',
+      cta2: 'Explore Menu',
     },
     about: {
       label: 'The Concept',
