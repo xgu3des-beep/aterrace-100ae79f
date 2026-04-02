@@ -15,6 +15,8 @@ const translations = {
     hero: {
       headline: 'Cocktails, Natureza e Bons Momentos',
       sub: 'Um refúgio onde a arte dos cocktails encontra a beleza natural. Relaxe no terraço, respire o ar puro e desfrute do momento.',
+      subBefore: 'Um refúgio onde a arte dos cocktails encontra a beleza natural. Relaxe no ',
+      subAfter: ', respire o ar puro e desfrute do momento.',
       cta: 'Reservar Mesa',
       cta2: 'Explorar Menu',
     },
