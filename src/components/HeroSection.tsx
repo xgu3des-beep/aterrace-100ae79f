@@ -36,7 +36,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3 }}
         >
-          <span className="inline-block font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
+          <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
+            <MapPin className="w-3.5 h-3.5" />
             Parque de Avioso — Maia, Portugal
           </span>
         </motion.div>
