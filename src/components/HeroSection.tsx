@@ -54,7 +54,7 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         <motion.p
           className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
         >
           {t.hero.subBefore}<em className="italic font-display text-foreground">terrace</em>{t.hero.subAfter}
