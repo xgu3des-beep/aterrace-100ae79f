@@ -45,7 +45,7 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         <motion.h1
           className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground"
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          animate={ready ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.92, y: 20 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="text-base md:text-2xl align-middle">✦</span> {t.hero.headline} <span className="text-base md:text-2xl align-middle">✦</span>
