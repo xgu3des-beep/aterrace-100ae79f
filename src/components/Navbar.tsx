@@ -36,7 +36,7 @@ const Navbar = () => {
           <span className="font-display text-sm italic text-primary">terrace</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
           {links.map((l) => (
             <a
               key={l.href}
@@ -46,6 +46,9 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+        </div>
+
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="#reservar"
             className="gradient-red px-5 py-2 text-sm font-semibold tracking-wide text-primary-foreground rounded transition-all duration-300 hover:opacity-90"
