@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { MapPin } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 
-const HeroSection = () => {
+const HeroSection = ({ ready = false }: { ready?: boolean }) => {
   const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -33,7 +33,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
         >
           <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
@@ -45,7 +45,7 @@ const HeroSection = () => {
         <motion.h1
           className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground"
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          animate={ready ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.92, y: 20 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="text-base md:text-2xl align-middle">✦</span> {t.hero.headline} <span className="text-base md:text-2xl align-middle">✦</span>
@@ -54,7 +54,7 @@ const HeroSection = () => {
         <motion.p
           className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
         >
           {t.hero.subBefore}<em className="italic font-display text-foreground">terrace</em>{t.hero.subAfter}
@@ -63,7 +63,7 @@ const HeroSection = () => {
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.55, ease: 'easeOut' }}
         >
           <a
