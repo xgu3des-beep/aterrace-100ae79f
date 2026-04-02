@@ -57,7 +57,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.4 }}
         >
-          {t.hero.sub}
+          {t.hero.subBefore}<em className="italic font-display text-foreground">terrace</em>{t.hero.subAfter}
         </motion.p>
 
         <motion.div

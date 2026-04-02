@@ -102,6 +102,8 @@ const translations = {
     hero: {
       headline: 'Cocktails, Nature & Good Times',
       sub: 'A retreat where cocktail craft meets natural beauty. Relax on the terrace, breathe in the fresh air, and savour the moment.',
+      subBefore: 'A retreat where cocktail craft meets natural beauty. Relax on the ',
+      subAfter: ', breathe in the fresh air, and savour the moment.',
       cta: 'Reserve a Table',
       cta2: 'Explore Menu',
     },
