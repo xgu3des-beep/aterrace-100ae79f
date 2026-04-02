@@ -6,11 +6,18 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-background" />
-      <div className="absolute inset-0 opacity-30" style={{
-        backgroundImage: 'radial-gradient(circle at 30% 50%, hsl(0 70% 35% / 0.15) 0%, transparent 60%), radial-gradient(circle at 70% 70%, hsl(40 60% 50% / 0.1) 0%, transparent 50%)'
-      }} />
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/videos/hero-bg.mp4"
+      />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-background/60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
