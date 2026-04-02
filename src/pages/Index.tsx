@@ -19,20 +19,18 @@ const Index = () => {
   return (
     <LangProvider>
       {loading && <LoadingScreen onComplete={handleComplete} />}
-      {!loading && (
-        <>
-          <Navbar />
-          <HeroSection />
-          <AboutSection />
-          <CocktailsSection />
-          <ExperienceSection />
-          <GallerySection />
-          <TestimonialsSection />
-          <ReservationSection />
-          <LocationSection />
-          <FooterSection />
-        </>
-      )}
+      <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <CocktailsSection />
+        <ExperienceSection />
+        <GallerySection />
+        <TestimonialsSection />
+        <ReservationSection />
+        <LocationSection />
+        <FooterSection />
+      </div>
     </LangProvider>
   );
 };
