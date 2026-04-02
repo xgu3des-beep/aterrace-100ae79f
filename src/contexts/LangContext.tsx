@@ -16,7 +16,7 @@ const translations = {
       headline: 'Cocktails, Natureza e Bons Momentos',
       sub: 'Um refúgio onde a arte dos cocktails encontra a beleza natural. Relaxe no terraço, respire o ar puro e desfrute do momento.',
       cta: 'Reservar Mesa',
-      cta2: 'Ver Menu',
+      cta2: 'Explorar Menu',
     },
     about: {
       label: 'O Conceito',
@@ -101,7 +101,7 @@ const translations = {
       headline: 'Cocktails, Nature & Good Times',
       sub: 'A retreat where cocktail craft meets natural beauty. Relax on the terrace, breathe in the fresh air, and savour the moment.',
       cta: 'Reserve a Table',
-      cta2: 'View Menu',
+      cta2: 'Explore Menu',
     },
     about: {
       label: 'The Concept',
