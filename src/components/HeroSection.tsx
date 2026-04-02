@@ -36,7 +36,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 3 }}
         >
           <span className="inline-block font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
-            Avioso Terrace — Porto, Portugal
+            Parque de Avioso — Maia, Portugal
           </span>
         </motion.div>
 
