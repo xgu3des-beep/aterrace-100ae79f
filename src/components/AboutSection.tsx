@@ -2,10 +2,6 @@ import { useRef, useState, useEffect } from 'react';
 import { useLang } from '@/contexts/LangContext';
 import about1 from '@/assets/about-1.webp';
 import about2 from '@/assets/about-2.webp';
-import about3 from '@/assets/about-3.webp';
-import about4 from '@/assets/about-4.jpg';
-
-const images = [about1, about2, about3, about4];
 
 const AboutSection = () => {
   const { t } = useLang();
@@ -28,48 +24,75 @@ const AboutSection = () => {
     return () => obs.disconnect();
   }, []);
 
-  const baseStyle = (delay: number): React.CSSProperties => ({
+  const leftStyle: React.CSSProperties = {
     opacity: visible ? 1 : 0,
-    transform: visible ? 'translateY(0)' : 'translateY(40px)',
-    transition: `opacity 700ms ease-out ${delay}ms, transform 700ms ease-out ${delay}ms`,
-  });
+    transform: visible ? 'translateX(0)' : 'translateX(-40px)',
+    transition: 'opacity 800ms ease-out, transform 800ms ease-out',
+  };
+
+  const rightStyle: React.CSSProperties = {
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateX(0)' : 'translateX(40px)',
+    transition: 'opacity 800ms ease-out 150ms, transform 800ms ease-out 150ms',
+  };
 
   return (
     <section id="conceito" className="py-24 md:py-32 bg-warm">
       <div className="container mx-auto px-6" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Images grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {images.map((src, i) => (
-              <div
-                key={i}
-                className="overflow-hidden rounded-lg aspect-[4/3]"
-                style={baseStyle(i * 80)}
-              >
-                <img
-                  src={src}
-                  alt={`Avioso Terrace ${i + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+          {/* Left — asymmetric image collage */}
+          <div className="relative flex gap-4 h-[500px] md:h-[600px]" style={leftStyle}>
+            {/* Tall image — left */}
+            <div className="relative w-[55%] h-full rounded-lg overflow-hidden shadow-2xl">
+              <img
+                src={about1}
+                alt="Avioso Terrace ambiente"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              {/* Gold corner accent — top-left */}
+              <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-gold" />
+                <div className="absolute top-0 left-0 h-full w-[2px] bg-gold" />
               </div>
-            ))}
+            </div>
+
+            {/* Shorter image — right, offset down */}
+            <div className="relative w-[50%] h-[65%] self-end -ml-6 mb-4 rounded-lg overflow-hidden shadow-xl z-10">
+              <img
+                src={about2}
+                alt="Avioso Terrace cocktails"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
           </div>
 
-          {/* Text block */}
-          <div className="text-center lg:text-left" style={baseStyle(0)}>
+          {/* Right — text content */}
+          <div className="lg:pl-8 text-center lg:text-left" style={rightStyle}>
             <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
               {t.about.label}
             </span>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-8 leading-tight">
+
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight">
               {t.about.title}
             </h2>
+
             <div className="space-y-5 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>{t.about.p1}</p>
               <p>{t.about.p2}</p>
-              <p className="text-gold italic font-display text-xl">{t.about.p3}</p>
+            </div>
+
+            {/* Decorative line + italic quote */}
+            <div className="mt-8">
+              <div className="w-16 h-[2px] bg-gold mb-4 mx-auto lg:mx-0" />
+              <p className="text-gold italic font-display text-xl md:text-2xl leading-relaxed">
+                {t.about.p3}
+              </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
