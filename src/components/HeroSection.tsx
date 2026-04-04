@@ -11,7 +11,7 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
     offset: ['start start', 'end start'],
   });
   const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.85]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.35, 0.7]);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
