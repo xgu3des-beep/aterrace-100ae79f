@@ -25,9 +25,9 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         style={{ y: videoY }}
         src="/videos/hero-bg.mp4"
       />
-      {/* Overlay for readability */}
-      <motion.div className="absolute inset-0 bg-background" style={{ opacity: overlayOpacity }} />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+      {/* Overlay – lighter to let more video colour through */}
+      <motion.div className="absolute inset-0 bg-background/40" style={{ opacity: overlayOpacity }} />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/20" />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
