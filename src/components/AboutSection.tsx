@@ -3,6 +3,10 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLang } from '@/contexts/LangContext';
 import { StickyScroll } from '@/components/ui/sticky-scroll-reveal';
+import espacoImg from '@/assets/espaco.webp';
+import cocktailsImg from '@/assets/cocktails.webp';
+import experienciasImg from '@/assets/experiencias.webp';
+import naturezaImg from '@/assets/natureza.webp';
 
 const AboutSection = () => {
   const { t } = useLang();
@@ -15,9 +19,7 @@ const AboutSection = () => {
       description:
         "Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre a paisagem verde.",
       content: (
-        <div className="flex h-full w-full items-center justify-center font-display text-lg text-foreground">
-          O Espaço
-        </div>
+        <img src={espacoImg} alt="O Espaço — Terraço Avioso" className="h-full w-full object-cover" />
       ),
     },
     {
@@ -25,9 +27,7 @@ const AboutSection = () => {
       description:
         "Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.",
       content: (
-        <div className="flex h-full w-full items-center justify-center font-display text-lg text-foreground">
-          Cocktails
-        </div>
+        <img src={cocktailsImg} alt="Bar de Cocktails" className="h-full w-full object-cover" />
       ),
     },
     {
@@ -35,9 +35,7 @@ const AboutSection = () => {
       description:
         "De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.",
       content: (
-        <div className="flex h-full w-full items-center justify-center font-display text-lg text-foreground">
-          Experiências
-        </div>
+        <img src={experienciasImg} alt="Sala de jogos e eventos" className="h-full w-full object-cover" />
       ),
     },
     {
@@ -45,16 +43,14 @@ const AboutSection = () => {
       description:
         "Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.",
       content: (
-        <div className="flex h-full w-full items-center justify-center font-display text-lg text-foreground">
-          Natureza
-        </div>
+        <img src={naturezaImg} alt="Lounge interior" className="h-full w-full object-cover" />
       ),
     },
   ];
 
   return (
-    <section id="conceito" className="py-24 md:py-32 bg-warm">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="conceito" className="bg-warm">
+      <div className="container mx-auto px-6 py-24 md:py-32" ref={ref}>
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
@@ -73,15 +69,15 @@ const AboutSection = () => {
             <p className="text-gold italic font-display text-xl">{t.about.p3}</p>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <StickyScroll content={scrollContent} />
-        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <StickyScroll content={scrollContent} />
+      </motion.div>
     </section>
   );
 };
