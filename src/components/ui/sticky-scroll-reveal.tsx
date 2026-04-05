@@ -49,17 +49,16 @@ export const StickyScroll = ({
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
-      <div className="flex px-8 py-16 md:px-16 lg:px-24 gap-10 lg:gap-16">
+      <div className="flex px-8 py-8 md:px-16 lg:px-24 gap-10 lg:gap-16">
 
-        {/* Coluna de texto — cada bloco ~80vh para o próximo "vazar" */}
+        {/* Coluna de texto */}
         <div className="flex-1 flex items-start">
           <div className="max-w-md w-full">
             {content.map((item, index) => (
               <div
                 key={item.title + index}
-                // 80vh por card: ativo fica centrado, próximo fica visível em baixo
                 className="flex flex-col justify-center"
-                style={{ minHeight: "80vh", paddingTop: "10vh", paddingBottom: "10vh" }}
+                style={{ minHeight: "55vh", paddingTop: "6vh", paddingBottom: "6vh" }}
               >
                 <motion.span
                   animate={{
@@ -85,18 +84,17 @@ export const StickyScroll = ({
                     x: activeCard === index ? 0 : -8,
                   }}
                   transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-                  className="font-body text-lg md:text-xl mt-6 text-muted-foreground leading-relaxed"
+                  className="font-body text-lg md:text-xl mt-4 text-muted-foreground leading-relaxed"
                 >
                   {item.description}
                 </motion.p>
               </div>
             ))}
-            {/* Espaço final para que o último card possa chegar ao topo */}
-            <div style={{ height: "20vh" }} />
+            <div style={{ height: "10vh" }} />
           </div>
         </div>
 
-        {/* Coluna de imagem — sticky centrada verticalmente */}
+        {/* Coluna de imagem — sticky centrada */}
         <div
           className={cn(
             "hidden lg:flex items-center sticky top-0 self-start h-screen w-[36rem] shrink-0",
