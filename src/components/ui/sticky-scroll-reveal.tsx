@@ -50,7 +50,7 @@ export const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="relative flex h-[42rem] justify-between gap-16 overflow-y-auto px-8 py-16 md:px-16 lg:px-24 scrollbar-none"
+      className="relative flex h-[42rem] justify-between gap-10 overflow-y-auto px-8 py-16 md:px-16 lg:px-24 scrollbar-none"
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
