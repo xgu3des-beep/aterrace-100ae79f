@@ -62,6 +62,21 @@ const AboutSection = () => {
       className="relative"
       style={{ height: `${items.length * 100 + 100}vh` }}
     >
+      {/* Section title */}
+      <div className="h-screen flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <span className="font-body text-xs tracking-[0.35em] uppercase text-primary/70 mb-4 block">
+            {t.about.label}
+          </span>
+        </motion.div>
+      </div>
+
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
         <motion.div
