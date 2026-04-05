@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll, motion } from "framer-motion";
+import { useMotionValueEvent, useScroll, motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const StickyScroll = ({
@@ -41,62 +41,74 @@ export const StickyScroll = ({
     "hsl(25 30% 20%)",
     "hsl(20 10% 8%)",
     "hsl(20 8% 15%)",
+    "hsl(22 18% 12%)",
   ];
-
-  const linearGradients = [
-    "linear-gradient(to bottom right, hsl(0 70% 35%), hsl(350 65% 28%))",
-    "linear-gradient(to bottom right, hsl(40 60% 50%), hsl(30 25% 30%))",
-    "linear-gradient(to bottom right, hsl(0 70% 35%), hsl(40 60% 50%))",
-  ];
-
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0],
-  );
-
-  useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
 
   return (
     <motion.div
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto p-10 scrollbar-none"
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      className="relative flex h-[36rem] justify-center gap-16 overflow-y-auto px-6 py-12 md:px-12 scrollbar-none"
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
-      <div className="div relative flex items-start px-4">
-        <div className="max-w-2xl">
+      {/* Text column */}
+      <div className="relative flex items-start">
+        <div className="max-w-md">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
+            <div key={item.title + index} className="my-24 first:mt-8">
+              <motion.span
+                animate={{ opacity: activeCard === index ? 1 : 0, width: activeCard === index ? 40 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="block h-[2px] bg-primary mb-4"
+              />
               <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                className="font-display text-2xl font-bold text-foreground"
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.2,
+                  x: activeCard === index ? 0 : -8,
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="font-display text-2xl md:text-3xl font-bold text-foreground"
               >
                 {item.title}
               </motion.h2>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                className="font-body text-lg mt-10 max-w-sm text-muted-foreground"
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.15,
+                  x: activeCard === index ? 0 : -8,
+                }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+                className="font-body text-base md:text-lg mt-6 max-w-sm text-muted-foreground leading-relaxed"
               >
                 {item.description}
               </motion.p>
             </div>
           ))}
-          <div className="h-40" />
+          <div className="h-48" />
         </div>
       </div>
+
+      {/* Image column — larger with crossfade */}
       <div
-        style={{ background: backgroundGradient }}
         className={cn(
-          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md lg:block",
+          "sticky top-8 hidden h-80 w-[26rem] overflow-hidden rounded-lg lg:block shadow-2xl",
           contentClassName,
         )}
       >
-        {content[activeCard].content ?? null}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCard}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.97 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {content[activeCard].content ?? null}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
