@@ -56,7 +56,7 @@ export const StickyScroll = ({
     >
       {/* Text column */}
       <div className="relative flex items-start">
-        <div className="max-w-md">
+        <div className="max-w-lg">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-24 first:mt-8">
               <motion.span
