@@ -35,7 +35,7 @@ const AboutSection = () => {
       description:
         "De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.",
       content: (
-        <img src={experienciasImg} alt="Sala de jogos e eventos" className="h-full w-full object-cover" />
+        <img src={experienciasImg} alt="Sala de jogos e eventos" className="w-full h-auto object-contain" />
       ),
     },
     {
