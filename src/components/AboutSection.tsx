@@ -60,6 +60,9 @@ const AboutSection = () => {
       className="relative"
       style={{ height: `${items.length * 100}vh` }}
     >
+      {/* Top fade transition from previous section */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none z-20" />
+
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
         <motion.div
