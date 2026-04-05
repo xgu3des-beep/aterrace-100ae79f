@@ -32,6 +32,9 @@ export const StickyScroll = ({
     setActiveCard(index);
   });
 
+  // Imagem muda a cada 2 cards (aos pares)
+  const activeImage = Math.floor(activeCard / 2);
+
   const backgroundColors = [
     "hsl(25 30% 20%)",
     "hsl(20 10% 8%)",
@@ -58,7 +61,8 @@ export const StickyScroll = ({
               <div
                 key={item.title + index}
                 className="flex flex-col justify-center"
-                style={{ minHeight: "55vh", paddingTop: "6vh", paddingBottom: "6vh" }}
+                // Cada card ocupa metade do ecrã — 2 cards = 1 ecrã completo
+                style={{ minHeight: "42vh", paddingTop: "4vh", paddingBottom: "4vh" }}
               >
                 <motion.span
                   animate={{
@@ -66,7 +70,7 @@ export const StickyScroll = ({
                     width: activeCard === index ? 40 : 0,
                   }}
                   transition={{ duration: 0.4 }}
-                  className="block h-[2px] bg-primary mb-4"
+                  className="block h-[2px] bg-primary mb-3"
                 />
                 <motion.h2
                   animate={{
@@ -74,7 +78,7 @@ export const StickyScroll = ({
                     x: activeCard === index ? 0 : -8,
                   }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="font-display text-3xl md:text-4xl font-bold text-foreground"
+                  className="font-display text-2xl md:text-3xl font-bold text-foreground"
                 >
                   {item.title}
                 </motion.h2>
@@ -84,17 +88,17 @@ export const StickyScroll = ({
                     x: activeCard === index ? 0 : -8,
                   }}
                   transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-                  className="font-body text-lg md:text-xl mt-4 text-muted-foreground leading-relaxed"
+                  className="font-body text-base md:text-lg mt-3 text-muted-foreground leading-relaxed"
                 >
                   {item.description}
                 </motion.p>
               </div>
             ))}
-            <div style={{ height: "10vh" }} />
+            <div style={{ height: "8vh" }} />
           </div>
         </div>
 
-        {/* Coluna de imagem — sticky centrada */}
+        {/* Coluna de imagem — muda a cada 2 cards */}
         <div
           className={cn(
             "hidden lg:flex items-center sticky top-0 self-start h-screen w-[36rem] shrink-0",
@@ -103,7 +107,7 @@ export const StickyScroll = ({
         >
           <AnimatePresence mode="wait">
             <motion.div
-              key={activeCard}
+              key={activeImage}
               initial={{ opacity: 0, scale: 1.03 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
@@ -111,7 +115,8 @@ export const StickyScroll = ({
               className="w-full rounded-lg shadow-2xl overflow-hidden"
             >
               <div className="[&>img]:w-full [&>img]:h-auto [&>img]:block">
-                {content[activeCard].content ?? null}
+                {/* Mostra a imagem do primeiro card de cada par */}
+                {content[activeImage * 2]?.content ?? null}
               </div>
             </motion.div>
           </AnimatePresence>
