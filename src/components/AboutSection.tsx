@@ -122,7 +122,14 @@ const AboutSection = () => {
                 />
 
                 <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
-                  {items[active].title}
+                  {active === 0 ? (
+                    <span className="inline-flex items-center gap-3">
+                      <img src={espacoIcon} alt="O" className="h-14 md:h-16 lg:h-20 w-auto object-contain inline-block" />
+                      <span>Espaço</span>
+                    </span>
+                  ) : (
+                    items[active].title
+                  )}
                 </h2>
 
                 <p className="font-body text-lg md:text-xl mt-6 text-muted-foreground leading-relaxed max-w-md">
