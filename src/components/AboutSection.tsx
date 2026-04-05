@@ -19,7 +19,7 @@ const AboutSection = () => {
       description:
         "Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre a paisagem verde.",
       content: (
-        <img src={espacoImg} alt="O Espaço — Terraço Avioso" className="h-full w-full object-cover" />
+        <img src={espacoImg} alt="O Espaço — Terraço Avioso" className="w-full h-auto object-contain" />
       ),
     },
     {
