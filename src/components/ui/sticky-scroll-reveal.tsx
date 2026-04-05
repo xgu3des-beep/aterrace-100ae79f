@@ -38,15 +38,15 @@ export const StickyScroll = ({
   });
 
   const backgroundColors = [
-    "hsl(25 30% 20%)",   // warm
-    "hsl(20 10% 8%)",    // card
-    "hsl(20 8% 15%)",    // secondary
+    "hsl(25 30% 20%)",
+    "hsl(20 10% 8%)",
+    "hsl(20 8% 15%)",
   ];
 
   const linearGradients = [
-    "linear-gradient(to bottom right, hsl(0 70% 35%), hsl(350 65% 28%))",       // primary red
-    "linear-gradient(to bottom right, hsl(40 60% 50%), hsl(30 25% 30%))",       // gold to warm-light
-    "linear-gradient(to bottom right, hsl(0 70% 35%), hsl(40 60% 50%))",        // red to gold
+    "linear-gradient(to bottom right, hsl(0 70% 35%), hsl(350 65% 28%))",
+    "linear-gradient(to bottom right, hsl(40 60% 50%), hsl(30 25% 30%))",
+    "linear-gradient(to bottom right, hsl(0 70% 35%), hsl(40 60% 50%))",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
@@ -62,7 +62,8 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10"
+      className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto p-10 scrollbar-none"
+      style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
