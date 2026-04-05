@@ -81,9 +81,6 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         </motion.div>
       </div>
 
-      {/* Bottom fade transition to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-background pointer-events-none z-10" />
-
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
