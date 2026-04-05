@@ -40,6 +40,7 @@ const items = [
 const AboutSection = () => {
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLang();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -59,7 +60,7 @@ const AboutSection = () => {
       id="conceito"
       ref={sectionRef}
       className="relative"
-      style={{ height: `${items.length * 100}vh` }}
+      style={{ height: `${items.length * 100 + 100}vh` }}
     >
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
