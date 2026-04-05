@@ -93,7 +93,7 @@ export const StickyScroll = ({
       {/* Image column — larger with crossfade */}
       <div
         className={cn(
-          "sticky top-8 hidden h-80 w-[26rem] overflow-hidden rounded-lg lg:block shadow-2xl",
+          "sticky top-8 hidden h-[28rem] w-[34rem] overflow-hidden rounded-lg lg:block shadow-2xl",
           contentClassName,
         )}
       >
