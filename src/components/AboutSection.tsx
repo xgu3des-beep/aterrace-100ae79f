@@ -87,22 +87,27 @@ const AboutSection = () => {
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
-            {/* Step counter */}
-            <motion.div
-              key={`step-${active}`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: active === 0 ? 0.8 : 0.4, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="mb-6 block h-8"
-            >
-              {active === 0 ? (
-                <img src={espacoIcon} alt="O Espaço" className="h-8 w-auto object-contain" />
-              ) : (
-                <span className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground leading-8">
-                  {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-                </span>
-              )}
-            </motion.div>
+            {/* Step counter or icon */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`step-${active}`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4 }}
+                className="mb-4 h-10"
+              >
+                {active === 0 ? (
+                  <div className="flex justify-center">
+                    <img src={espacoIcon} alt="O Espaço" className="h-10 w-auto object-contain" />
+                  </div>
+                ) : (
+                  <span className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground/40 leading-10 block">
+                    {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+                  </span>
+                )}
+              </motion.div>
+            </AnimatePresence>
 
             <AnimatePresence mode="wait">
               <motion.div
