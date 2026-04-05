@@ -2,17 +2,57 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLang } from '@/contexts/LangContext';
+import { StickyScroll } from '@/components/ui/sticky-scroll-reveal';
+import espacoImg from '@/assets/espaco.webp';
+import cocktailsImg from '@/assets/cocktails.webp';
+import experienciasImg from '@/assets/experiencias.webp';
+import naturezaImg from '@/assets/natureza.webp';
 
 const AboutSection = () => {
   const { t } = useLang();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
+  const scrollContent = [
+    {
+      title: "O Espaço",
+      description:
+        "Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre a paisagem verde.",
+      content: (
+        <img src={espacoImg} alt="O Espaço — Terraço Avioso" className="h-full w-full object-cover" />
+      ),
+    },
+    {
+      title: "Cocktails de Autor",
+      description:
+        "Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.",
+      content: (
+        <img src={cocktailsImg} alt="Bar de Cocktails" className="h-full w-full object-cover" />
+      ),
+    },
+    {
+      title: "Eventos & Experiências",
+      description:
+        "De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.",
+      content: (
+        <img src={experienciasImg} alt="Sala de jogos e eventos" className="h-full w-full object-cover" />
+      ),
+    },
+    {
+      title: "Natureza & Tranquilidade",
+      description:
+        "Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.",
+      content: (
+        <img src={naturezaImg} alt="Lounge interior" className="h-full w-full object-cover" />
+      ),
+    },
+  ];
+
   return (
-    <section id="conceito" className="py-24 md:py-32 bg-warm">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="conceito" className="bg-warm">
+      <div className="container mx-auto px-6 py-24 md:py-32" ref={ref}>
         <motion.div
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -30,6 +70,14 @@ const AboutSection = () => {
           </div>
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <StickyScroll content={scrollContent} />
+      </motion.div>
     </section>
   );
 };
