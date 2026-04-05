@@ -50,13 +50,13 @@ export const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="relative flex h-[36rem] justify-center gap-16 overflow-y-auto px-6 py-12 md:px-12 scrollbar-none"
+      className="relative flex h-[42rem] justify-between gap-32 overflow-y-auto px-8 py-16 md:px-20 lg:px-28 scrollbar-none"
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
       {/* Text column */}
       <div className="relative flex items-start">
-        <div className="max-w-md">
+        <div className="max-w-lg">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-24 first:mt-8">
               <motion.span
@@ -93,7 +93,7 @@ export const StickyScroll = ({
       {/* Image column — larger with crossfade */}
       <div
         className={cn(
-          "sticky top-8 hidden h-80 w-[26rem] overflow-hidden rounded-lg lg:block shadow-2xl",
+          "sticky top-8 hidden h-[28rem] w-[34rem] overflow-hidden rounded-lg lg:block shadow-2xl",
           contentClassName,
         )}
       >
