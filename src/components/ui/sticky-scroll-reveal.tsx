@@ -94,29 +94,23 @@ export const StickyScroll = ({
         </div>
       </div>
 
-      {/* Coluna de imagem — sticky na página */}
+      {/* Coluna de imagem — sticky, altura natural da imagem */}
       <div
         className={cn(
-          // FIX 5: sticky top com altura da viewport, sem overflow hidden para não cortar
           "sticky top-8 hidden self-start w-[36rem] lg:block",
           contentClassName
         )}
-        style={{ height: "calc(100vh - 4rem)" }}
       >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCard}
-            initial={{ opacity: 0, scale: 1.05 }}
+            initial={{ opacity: 0, scale: 1.02 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.97 }}
+            exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            // FIX 6: imagem preenche o container sem espaço extra
-            className="w-full h-full rounded-lg shadow-2xl overflow-hidden"
+            className="rounded-lg shadow-2xl overflow-hidden [&>img]:w-full [&>img]:h-auto [&>img]:block"
           >
-            {/* FIX 7: forçar imagem a preencher sem espaço branco */}
-            <div className="w-full h-full [&>img]:w-full [&>img]:h-full [&>img]:object-cover">
-              {content[activeCard].content ?? null}
-            </div>
+            {content[activeCard].content ?? null}
           </motion.div>
         </AnimatePresence>
       </div>
