@@ -9,7 +9,7 @@ const items = [
   {
     title: 'O Espaço',
     description:
-      'Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre a paisagem verde.',
+      'Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre 30 hectares de paisagem verde.',
     img: espacoImg,
     alt: 'O Espaço — Terraço Avioso',
   },
