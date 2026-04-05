@@ -52,8 +52,8 @@ export const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      // FIX: altura maior (80vh) para a secção respirar + overflow-y-auto para scroll interno
-      className="relative flex h-[80vh] justify-between gap-10 overflow-y-auto px-8 py-10 md:px-16 lg:px-24 scrollbar-none"
+      // Secção compacta — mostra 1 card activo + peek do seguinte
+      className="relative flex h-[55vh] justify-between gap-10 overflow-y-auto px-8 py-8 md:px-16 lg:px-24 scrollbar-none"
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
@@ -61,8 +61,7 @@ export const StickyScroll = ({
       <div className="relative flex items-start">
         <div className="max-w-xl">
           {content.map((item, index) => (
-            // FIX: espaçamento reduzido de my-24 para my-14
-            <div key={item.title + index} className="my-14 first:mt-4">
+            <div key={item.title + index} className="my-10 first:mt-2">
               <motion.span
                 animate={{ opacity: activeCard === index ? 1 : 0, width: activeCard === index ? 40 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -90,8 +89,8 @@ export const StickyScroll = ({
               </motion.p>
             </div>
           ))}
-          {/* FIX: padding final reduzido de h-[30rem] para h-[12rem] — último card sincronizado */}
-          <div className="h-[12rem]" />
+          {/* Padding final = altura da secção para o último card conseguir chegar ao topo */}
+          <div className="h-[55vh]" />
         </div>
       </div>
 
