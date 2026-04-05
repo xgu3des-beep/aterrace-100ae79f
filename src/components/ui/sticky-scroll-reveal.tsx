@@ -15,21 +15,19 @@ export const StickyScroll = ({
   contentClassName?: string;
 }) => {
   const [activeCard, setActiveCard] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  // FIX 1: usar a página como container de scroll, não a div interna
+  // Scroll interno da secção
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    container: ref,
     offset: ["start start", "end end"],
   });
 
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // FIX 2: distribuir breakpoints de forma mais precisa
-    // Cada card ocupa 1/cardLength do scroll total
     const index = Math.min(
-      Math.floor(latest * cardLength),
+      Math.floor(latest * cardLength + 0.15),
       cardLength - 1
     );
     setActiveCard(index);
@@ -43,76 +41,85 @@ export const StickyScroll = ({
   ];
 
   return (
-    // FIX 3: remover h-[42rem] e overflow-y-auto — o scroll agora é da página
     <motion.div
-      ref={containerRef}
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="relative flex justify-between gap-10 px-8 py-16 md:px-16 lg:px-24"
+      // Secção com altura fixa = viewport, scroll interno
+      className="relative h-screen overflow-y-auto scrollbar-none"
+      style={{ scrollbarWidth: "none" }}
+      ref={ref}
     >
-      {/* Coluna de texto — scroll normal */}
-      <div className="relative flex items-start">
-        <div className="max-w-xl">
-          {content.map((item, index) => (
-            <div
-              key={item.title + index}
-              // FIX 4: altura de cada bloco de texto igual à viewport para sincronizar com imagem
-              className="flex flex-col justify-center min-h-screen py-24"
-            >
-              <motion.span
-                animate={{
-                  opacity: activeCard === index ? 1 : 0,
-                  width: activeCard === index ? 40 : 0,
-                }}
-                transition={{ duration: 0.5 }}
-                className="block h-[2px] bg-primary mb-4"
-              />
-              <motion.h2
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.2,
-                  x: activeCard === index ? 0 : -8,
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="font-display text-3xl md:text-4xl font-bold text-foreground"
-              >
-                {item.title}
-              </motion.h2>
-              <motion.p
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.15,
-                  x: activeCard === index ? 0 : -8,
-                }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
-                className="font-body text-lg md:text-xl mt-6 max-w-md text-muted-foreground leading-relaxed"
-              >
-                {item.description}
-              </motion.p>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Layout interior: texto à esquerda, imagem à direita */}
+      <div className="flex px-8 py-16 md:px-16 lg:px-24 gap-10 lg:gap-16">
 
-      {/* Coluna de imagem — sticky, altura natural da imagem */}
-      <div
-        className={cn(
-          "sticky top-8 hidden self-start w-[36rem] lg:block",
-          contentClassName
-        )}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCard}
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="rounded-lg shadow-2xl overflow-hidden [&>img]:w-full [&>img]:h-auto [&>img]:block"
-          >
-            {content[activeCard].content ?? null}
-          </motion.div>
-        </AnimatePresence>
+        {/* Coluna de texto — scrollável internamente */}
+        <div className="flex-1 flex items-start">
+          <div className="max-w-md w-full">
+            {content.map((item, index) => (
+              <div
+                key={item.title + index}
+                // Cada bloco ocupa 100vh = 1 scroll completo por card
+                className="flex flex-col justify-center h-screen py-24"
+              >
+                <motion.span
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0,
+                    width: activeCard === index ? 40 : 0,
+                  }}
+                  transition={{ duration: 0.4 }}
+                  className="block h-[2px] bg-primary mb-4"
+                />
+                <motion.h2
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.2,
+                    x: activeCard === index ? 0 : -8,
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="font-display text-3xl md:text-4xl font-bold text-foreground"
+                >
+                  {item.title}
+                </motion.h2>
+                <motion.p
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.15,
+                    x: activeCard === index ? 0 : -8,
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
+                  className="font-body text-lg md:text-xl mt-6 text-muted-foreground leading-relaxed"
+                >
+                  {item.description}
+                </motion.p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Coluna de imagem — sticky dentro do scroll interno, centrada verticalmente */}
+        <div
+          className={cn(
+            "hidden lg:flex items-center sticky top-0 self-start h-screen w-[36rem] shrink-0",
+            contentClassName
+          )}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCard}
+              initial={{ opacity: 0, scale: 1.03 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="w-full rounded-lg shadow-2xl overflow-hidden"
+            >
+              {/* Imagem com dimensões naturais */}
+              <div className="[&>img]:w-full [&>img]:h-auto [&>img]:block">
+                {content[activeCard].content ?? null}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
       </div>
     </motion.div>
   );
