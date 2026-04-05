@@ -205,6 +205,19 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Closing italic phrase */}
+      <div className="h-screen flex items-center justify-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          className="font-display text-2xl md:text-3xl lg:text-4xl italic text-muted-foreground text-center max-w-2xl px-8"
+        >
+          {t.about.p3}
+        </motion.p>
+      </div>
     </section>
   );
 };
