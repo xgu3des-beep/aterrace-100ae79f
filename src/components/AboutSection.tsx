@@ -27,7 +27,7 @@ const AboutSection = () => {
       description:
         "Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.",
       content: (
-        <img src={cocktailsImg} alt="Bar de Cocktails" className="h-full w-full object-cover" />
+        <img src={cocktailsImg} alt="Bar de Cocktails" className="w-full h-auto object-contain" />
       ),
     },
     {
