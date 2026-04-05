@@ -19,7 +19,7 @@ const AboutSection = () => {
       description:
         "Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre a paisagem verde.",
       content: (
-        <img src={espacoImg} alt="O Espaço — Terraço Avioso" className="h-full w-full object-cover" />
+        <img src={espacoImg} alt="O Espaço — Terraço Avioso" className="w-full h-auto object-contain" />
       ),
     },
     {
@@ -27,7 +27,7 @@ const AboutSection = () => {
       description:
         "Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.",
       content: (
-        <img src={cocktailsImg} alt="Bar de Cocktails" className="h-full w-full object-cover" />
+        <img src={cocktailsImg} alt="Bar de Cocktails" className="w-full h-auto object-contain" />
       ),
     },
     {
@@ -35,7 +35,7 @@ const AboutSection = () => {
       description:
         "De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.",
       content: (
-        <img src={experienciasImg} alt="Sala de jogos e eventos" className="h-full w-full object-cover" />
+        <img src={experienciasImg} alt="Sala de jogos e eventos" className="w-full h-auto object-contain" />
       ),
     },
     {
@@ -43,7 +43,7 @@ const AboutSection = () => {
       description:
         "Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.",
       content: (
-        <img src={naturezaImg} alt="Lounge interior" className="h-full w-full object-cover" />
+        <img src={naturezaImg} alt="Lounge interior" className="w-full h-auto object-contain" />
       ),
     },
   ];

@@ -50,13 +50,13 @@ export const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="relative flex h-[42rem] justify-between gap-32 overflow-y-auto px-8 py-16 md:px-20 lg:px-28 scrollbar-none"
+      className="relative flex h-[42rem] justify-between gap-16 overflow-y-auto px-8 py-16 md:px-16 lg:px-24 scrollbar-none"
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
       {/* Text column */}
       <div className="relative flex items-start">
-        <div className="max-w-lg">
+        <div className="max-w-xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-24 first:mt-8">
               <motion.span
@@ -70,7 +70,7 @@ export const StickyScroll = ({
                   x: activeCard === index ? 0 : -8,
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="font-display text-2xl md:text-3xl font-bold text-foreground"
+                className="font-display text-3xl md:text-4xl font-bold text-foreground"
               >
                 {item.title}
               </motion.h2>
@@ -80,7 +80,7 @@ export const StickyScroll = ({
                   x: activeCard === index ? 0 : -8,
                 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
-                className="font-body text-base md:text-lg mt-6 max-w-sm text-muted-foreground leading-relaxed"
+                className="font-body text-lg md:text-xl mt-6 max-w-md text-muted-foreground leading-relaxed"
               >
                 {item.description}
               </motion.p>
@@ -90,10 +90,10 @@ export const StickyScroll = ({
         </div>
       </div>
 
-      {/* Image column — larger with crossfade */}
+      {/* Image column — auto height with crossfade */}
       <div
         className={cn(
-          "sticky top-8 hidden h-[28rem] w-[34rem] overflow-hidden rounded-lg lg:block shadow-2xl",
+          "sticky top-8 hidden w-[36rem] overflow-hidden rounded-lg lg:block shadow-2xl",
           contentClassName,
         )}
       >
@@ -104,7 +104,6 @@ export const StickyScroll = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="absolute inset-0"
           >
             {content[activeCard].content ?? null}
           </motion.div>
