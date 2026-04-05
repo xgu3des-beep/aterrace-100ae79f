@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from 'framer-motion';
-import { useLang } from '@/contexts/LangContext';
 import espacoImg from '@/assets/espaco.webp';
 import cocktailsImg from '@/assets/cocktails.webp';
 import experienciasImg from '@/assets/experiencias.webp';
@@ -40,7 +39,6 @@ const items = [
 const AboutSection = () => {
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useLang();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -60,23 +58,8 @@ const AboutSection = () => {
       id="conceito"
       ref={sectionRef}
       className="relative"
-      style={{ height: `${items.length * 100 + 100}vh` }}
+      style={{ height: `${items.length * 100}vh` }}
     >
-      {/* Section title */}
-      <div className="h-screen flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <span className="font-body text-xs tracking-[0.35em] uppercase text-primary/70 mb-4 block">
-            {t.about.label}
-          </span>
-        </motion.div>
-      </div>
-
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -204,19 +187,6 @@ const AboutSection = () => {
             </AnimatePresence>
           </div>
         </div>
-      </div>
-
-      {/* Closing italic phrase */}
-      <div className="h-screen flex items-center justify-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-          className="font-display text-2xl md:text-3xl lg:text-4xl italic text-muted-foreground text-center max-w-2xl px-8"
-        >
-          {t.about.p3}
-        </motion.p>
       </div>
     </section>
   );
