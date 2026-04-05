@@ -5,9 +5,10 @@ type Lang = 'pt' | 'en';
 const translations = {
   pt: {
     nav: {
-      espaco: 'Espaço',
+      conceito: 'Conceito',
+      menu: 'Menu',
+      experiencia: 'Experiência',
       galeria: 'Galeria',
-      testemunhos: 'Testemunhos',
       reservar: 'Reservar',
       contacto: 'Contacto',
     },
@@ -91,9 +92,10 @@ const translations = {
   },
   en: {
     nav: {
-      espaco: 'Space',
+      conceito: 'Concept',
+      menu: 'Menu',
+      experiencia: 'Experience',
       galeria: 'Gallery',
-      testemunhos: 'Testimonials',
       reservar: 'Reserve',
       contacto: 'Contact',
     },
