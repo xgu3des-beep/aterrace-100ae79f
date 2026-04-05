@@ -87,7 +87,7 @@ const AboutSection = () => {
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
-            {/* Step counter or icon */}
+            {/* Step counter */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={`step-${active}`}
@@ -97,11 +97,7 @@ const AboutSection = () => {
                 transition={{ duration: 0.4 }}
                 className="mb-4 h-10"
               >
-                {active === 0 ? (
-                  <div className="flex justify-center">
-                    <img src={espacoIcon} alt="O Espaço" className="h-10 w-auto object-contain" />
-                  </div>
-                ) : (
+                {active !== 0 && (
                   <span className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground/40 leading-10 block">
                     {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
                   </span>
