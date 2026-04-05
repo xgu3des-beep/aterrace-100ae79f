@@ -4,6 +4,7 @@ import espacoImg from '@/assets/espaco.webp';
 import cocktailsImg from '@/assets/cocktails.webp';
 import experienciasImg from '@/assets/experiencias.webp';
 import naturezaImg from '@/assets/natureza.webp';
+import espacoIcon from '@/assets/espaco-icon.png';
 
 const items = [
   {
@@ -87,15 +88,21 @@ const AboutSection = () => {
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
             {/* Step counter */}
-            <motion.span
+            <motion.div
               key={`step-${active}`}
               initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 0.4, y: 0 }}
+              animate={{ opacity: active === 0 ? 0.8 : 0.4, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 block"
+              className="mb-6 block h-8"
             >
-              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-            </motion.span>
+              {active === 0 ? (
+                <img src={espacoIcon} alt="O Espaço" className="h-8 w-auto object-contain" />
+              ) : (
+                <span className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground leading-8">
+                  {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+                </span>
+              )}
+            </motion.div>
 
             <AnimatePresence mode="wait">
               <motion.div
