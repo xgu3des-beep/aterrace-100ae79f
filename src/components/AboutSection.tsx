@@ -43,7 +43,7 @@ const AboutSection = () => {
       description:
         "Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.",
       content: (
-        <img src={naturezaImg} alt="Lounge interior" className="h-full w-full object-cover" />
+        <img src={naturezaImg} alt="Lounge interior" className="w-full h-auto object-contain" />
       ),
     },
   ];
