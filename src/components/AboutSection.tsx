@@ -4,7 +4,6 @@ import espacoImg from '@/assets/espaco.webp';
 import cocktailsImg from '@/assets/cocktails.webp';
 import experienciasImg from '@/assets/experiencias.webp';
 import naturezaImg from '@/assets/natureza.webp';
-import espacoIcon from '@/assets/espaco-icon.png';
 
 const items = [
   {
@@ -88,22 +87,15 @@ const AboutSection = () => {
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
             {/* Step counter */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`step-${active}`}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4 }}
-                className="mb-4 h-10"
-              >
-                {active !== 0 && (
-                  <span className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground/40 leading-10 block">
-                    {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-                  </span>
-                )}
-              </motion.div>
-            </AnimatePresence>
+            <motion.span
+              key={`step-${active}`}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 0.4, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 block"
+            >
+              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+            </motion.span>
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -122,14 +114,7 @@ const AboutSection = () => {
                 />
 
                 <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
-                  {active === 0 ? (
-                    <span className="inline-flex items-center gap-3">
-                      <img src={espacoIcon} alt="O" className="h-28 md:h-32 lg:h-40 w-auto object-contain inline-block" />
-                      <span className="italic">Terraço</span>
-                    </span>
-                  ) : (
-                    items[active].title
-                  )}
+                  {items[active].title}
                 </h2>
 
                 <p className="font-body text-lg md:text-xl mt-6 text-muted-foreground leading-relaxed max-w-md">
