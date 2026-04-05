@@ -17,7 +17,6 @@ export const StickyScroll = ({
   const [activeCard, setActiveCard] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Scroll interno da secção
   const { scrollYProgress } = useScroll({
     container: ref,
     offset: ["start start", "end end"],
@@ -46,22 +45,21 @@ export const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      // Secção com altura fixa = viewport, scroll interno
       className="relative h-screen overflow-y-auto scrollbar-none"
       style={{ scrollbarWidth: "none" }}
       ref={ref}
     >
-      {/* Layout interior: texto à esquerda, imagem à direita */}
       <div className="flex px-8 py-16 md:px-16 lg:px-24 gap-10 lg:gap-16">
 
-        {/* Coluna de texto — scrollável internamente */}
+        {/* Coluna de texto — cada bloco ~80vh para o próximo "vazar" */}
         <div className="flex-1 flex items-start">
           <div className="max-w-md w-full">
             {content.map((item, index) => (
               <div
                 key={item.title + index}
-                // Cada bloco ocupa 100vh = 1 scroll completo por card
-                className="flex flex-col justify-center h-screen py-24"
+                // 80vh por card: ativo fica centrado, próximo fica visível em baixo
+                className="flex flex-col justify-center"
+                style={{ minHeight: "80vh", paddingTop: "10vh", paddingBottom: "10vh" }}
               >
                 <motion.span
                   animate={{
@@ -93,10 +91,12 @@ export const StickyScroll = ({
                 </motion.p>
               </div>
             ))}
+            {/* Espaço final para que o último card possa chegar ao topo */}
+            <div style={{ height: "20vh" }} />
           </div>
         </div>
 
-        {/* Coluna de imagem — sticky dentro do scroll interno, centrada verticalmente */}
+        {/* Coluna de imagem — sticky centrada verticalmente */}
         <div
           className={cn(
             "hidden lg:flex items-center sticky top-0 self-start h-screen w-[36rem] shrink-0",
@@ -112,7 +112,6 @@ export const StickyScroll = ({
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full rounded-lg shadow-2xl overflow-hidden"
             >
-              {/* Imagem com dimensões naturais */}
               <div className="[&>img]:w-full [&>img]:h-auto [&>img]:block">
                 {content[activeCard].content ?? null}
               </div>
