@@ -4,6 +4,7 @@ import espacoImg from '@/assets/espaco.webp';
 import cocktailsImg from '@/assets/cocktails.webp';
 import experienciasImg from '@/assets/experiencias.webp';
 import naturezaImg from '@/assets/natureza.webp';
+import espacoIcon from '@/assets/espaco-icon.png';
 
 const items = [
   {
