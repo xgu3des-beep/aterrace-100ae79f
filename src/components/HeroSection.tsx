@@ -23,8 +23,10 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
         style={{ y: videoY }}
-        src="/videos/hero-bg.mp4"
-      />
+      >
+        <source src="/videos/hero-bg.webm" type="video/webm" />
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+      </motion.video>
       {/* Overlay for readability */}
       <motion.div className="absolute inset-0 bg-background" style={{ opacity: overlayOpacity }} />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
