@@ -12,7 +12,32 @@ import FooterSection from '@/components/FooterSection';
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
-  const handleComplete = useCallback(() => setLoading(false), []);
+  const [videoReady, setVideoReady] = useState(false);
+  const [introDone, setIntroDone] = useState(false);
+  const handleIntroDone = useCallback(() => setIntroDone(true), []);
+
+  // Only finish loading when both intro animation AND video are ready
+  useEffect(() => {
+    if (introDone && videoReady) {
+      setLoading(false);
+    }
+  }, [introDone, videoReady]);
+
+  // Preload the video
+  useEffect(() => {
+    const video = document.createElement('video');
+    video.src = '/videos/hero-bg.mp4';
+    video.preload = 'auto';
+    const onReady = () => setVideoReady(true);
+    video.addEventListener('canplaythrough', onReady);
+    video.load();
+    // Fallback timeout so we don't wait forever
+    const timeout = setTimeout(() => setVideoReady(true), 8000);
+    return () => {
+      video.removeEventListener('canplaythrough', onReady);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <LangProvider>
