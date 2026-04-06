@@ -22,10 +22,10 @@ const CocktailsSection = () => {
   const allImages = [...cocktailImages, ...cocktailImages];
 
   return (
-    <section id="galeria" className="py-24 md:py-32 overflow-hidden">
+    <section id="galeria" className="py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-6" ref={ref}>
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
@@ -50,7 +50,7 @@ const CocktailsSection = () => {
       >
         <div className="relative w-full">
           <div
-            className="flex gap-4 animate-[scroll-left_40s_linear_infinite] hover:[animation-play-state:paused]"
+            className="flex gap-4 animate-[scroll-left_40s_linear_infinite]"
             style={{ width: 'max-content' }}
           >
             {allImages.map((src, i) => (
@@ -72,7 +72,7 @@ const CocktailsSection = () => {
 
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mt-12"
+          className="text-center mt-8"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
