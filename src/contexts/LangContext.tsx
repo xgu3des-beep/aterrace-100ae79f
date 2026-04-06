@@ -55,10 +55,14 @@ const translations = {
     testimonials: {
       label: 'O Que Dizem',
       title: 'Experiências Partilhadas',
+      googleLabel: 'Avaliações do Google',
       items: [
-        { text: '"Um sítio mágico. Os cocktails são incríveis e o pôr-do-sol visto do terraço é inesquecível."', author: 'Mariana S.', role: 'Porto' },
-        { text: '"O melhor local para desligar da rotina. Ambiente perfeito, drinks perfeitos, companhia perfeita."', author: 'Ricardo F.', role: 'Maia' },
-        { text: '"Já fui a muitos bares, mas o Avioso Terrace é diferente. Sentes-te em contacto com a natureza."', author: 'Ana L.', role: 'Vila do Conde' },
+        { text: '"Um sítio mágico. Os cocktails são incríveis e o pôr-do-sol visto do terraço é inesquecível."', author: 'Mariana Silva', location: 'Porto', rating: 5, photo: 'https://randomuser.me/api/portraits/women/44.jpg' },
+        { text: '"O melhor local para desligar da rotina. Ambiente perfeito, drinks perfeitos, companhia perfeita."', author: 'Ricardo Ferreira', location: 'Maia', rating: 5, photo: 'https://randomuser.me/api/portraits/men/32.jpg' },
+        { text: '"Já fui a muitos bares, mas o Avioso Terrace é diferente. Sentes-te em contacto com a natureza."', author: 'Ana Lopes', location: 'Vila do Conde', rating: 5, photo: 'https://randomuser.me/api/portraits/women/68.jpg' },
+        { text: '"Ambiente fantástico e cocktails de excelência. O staff é super atencioso e simpático."', author: 'Pedro Costa', location: 'Matosinhos', rating: 5, photo: 'https://randomuser.me/api/portraits/men/75.jpg' },
+        { text: '"Perfeito para um date night ou para relaxar com amigos. Vista incrível sobre o parque!"', author: 'Sofia Martins', location: 'Porto', rating: 4, photo: 'https://randomuser.me/api/portraits/women/22.jpg' },
+        { text: '"Descoberta do ano! Voltarei sempre que puder. Recomendo o Terrace Sunset."', author: 'Miguel Santos', location: 'Trofa', rating: 5, photo: 'https://randomuser.me/api/portraits/men/45.jpg' },
       ],
     },
     reservation: {
