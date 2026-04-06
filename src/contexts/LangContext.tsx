@@ -145,10 +145,14 @@ const translations = {
     testimonials: {
       label: 'Testimonials',
       title: 'Shared Experiences',
+      googleLabel: 'Google Reviews',
       items: [
-        { text: '"A magical place. The cocktails are incredible and the sunset from the terrace is unforgettable."', author: 'Mariana S.', role: 'Porto' },
-        { text: '"The best spot to disconnect. Perfect atmosphere, perfect drinks, perfect company."', author: 'Ricardo F.', role: 'Maia' },
-        { text: '"I\'ve been to many bars, but Avioso Terrace is different. You feel in touch with nature."', author: 'Ana L.', role: 'Vila do Conde' },
+        { text: '"A magical place. The cocktails are incredible and the sunset from the terrace is unforgettable."', author: 'Mariana Silva', location: 'Porto', rating: 5, photo: 'https://randomuser.me/api/portraits/women/44.jpg' },
+        { text: '"The best spot to disconnect. Perfect atmosphere, perfect drinks, perfect company."', author: 'Ricardo Ferreira', location: 'Maia', rating: 5, photo: 'https://randomuser.me/api/portraits/men/32.jpg' },
+        { text: '"I\'ve been to many bars, but Avioso Terrace is different. You feel in touch with nature."', author: 'Ana Lopes', location: 'Vila do Conde', rating: 5, photo: 'https://randomuser.me/api/portraits/women/68.jpg' },
+        { text: '"Fantastic atmosphere and excellent cocktails. The staff is super attentive and friendly."', author: 'Pedro Costa', location: 'Matosinhos', rating: 5, photo: 'https://randomuser.me/api/portraits/men/75.jpg' },
+        { text: '"Perfect for a date night or relaxing with friends. Incredible view over the park!"', author: 'Sofia Martins', location: 'Porto', rating: 4, photo: 'https://randomuser.me/api/portraits/women/22.jpg' },
+        { text: '"Discovery of the year! I\'ll come back whenever I can. I recommend the Terrace Sunset."', author: 'Miguel Santos', location: 'Trofa', rating: 5, photo: 'https://randomuser.me/api/portraits/men/45.jpg' },
       ],
     },
     reservation: {
