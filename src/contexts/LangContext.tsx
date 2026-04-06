@@ -91,10 +91,9 @@ const translations = {
   },
   en: {
     nav: {
-      conceito: 'Concept',
-      menu: 'Menu',
-      experiencia: 'Experience',
+      espaco: 'Space',
       galeria: 'Gallery',
+      testemunhos: 'Testimonials',
       reservar: 'Reserve',
       contacto: 'Contact',
     },
