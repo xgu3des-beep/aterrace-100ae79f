@@ -114,7 +114,7 @@ const translations = {
     },
     cocktails: {
       label: 'Gallery',
-      title: 'Our cocktails',
+      title: 'Our Cocktails',
       sub: 'Each cocktail is a sensory journey, made with fresh ingredients and contemporary mixology techniques.',
       items: [
         { name: 'Terrace Sunset', desc: 'Gin, blood orange juice, elderflower syrup, ginger foam', tag: 'Signature' },
