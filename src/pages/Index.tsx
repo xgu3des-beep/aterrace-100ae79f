@@ -24,7 +24,6 @@ const Index = () => {
         <CocktailsSection />
         
         <TestimonialsSection />
-        <ReservationSection />
         <LocationSection />
         <FooterSection />
       </div>
