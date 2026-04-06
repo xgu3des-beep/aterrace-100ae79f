@@ -65,7 +65,7 @@ const AboutSection = () => {
       style={{ height: `${items.length * 100}vh` }}
     >
       {/* Section header */}
-      <div className="container mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
+      <div className="container mx-auto px-6 pt-16 md:pt-20 pb-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
