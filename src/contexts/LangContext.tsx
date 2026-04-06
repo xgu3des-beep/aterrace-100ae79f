@@ -27,8 +27,8 @@ const translations = {
       p3: 'Não somos apenas um bar — somos um destino.',
     },
     cocktails: {
-      label: 'Cocktails & Menu',
-      title: 'Criações que Contam Histórias',
+      label: 'Galeria',
+      title: 'Os nossos cocktails',
       sub: 'Cada cocktail é uma viagem sensorial, feito com ingredientes frescos e técnicas de mixologia contemporânea.',
       items: [
         { name: 'Terrace Sunset', desc: 'Gin, sumo de laranja sanguínea, xarope de flor de sabugueiro, espuma de gengibre', tag: 'Assinatura' },
