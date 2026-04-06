@@ -41,7 +41,7 @@ const Index = () => {
 
   return (
     <LangProvider>
-      {loading && <LoadingScreen onComplete={handleComplete} />}
+      {loading && <LoadingScreen onComplete={handleIntroDone} />}
       <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
         <Navbar />
         <HeroSection ready={!loading} />
