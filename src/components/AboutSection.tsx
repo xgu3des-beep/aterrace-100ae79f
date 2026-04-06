@@ -64,6 +64,26 @@ const AboutSection = () => {
       className="relative"
       style={{ height: `${items.length * 100}vh` }}
     >
+      {/* Section header */}
+      <div className="container mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7 }}
+        >
+          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
+            Espaço
+          </span>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
+            <span className="text-base md:text-2xl align-middle">✦</span> O Nosso Conceito <span className="text-base md:text-2xl align-middle">✦</span>
+          </h2>
+          <p className="font-body text-muted-foreground max-w-xl mx-auto">
+            Um terraço onde a natureza, os cocktails de autor e o convívio se encontram para criar momentos únicos.
+          </p>
+        </motion.div>
+      </div>
+
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
         <motion.div
