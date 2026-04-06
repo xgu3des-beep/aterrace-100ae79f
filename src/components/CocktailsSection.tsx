@@ -50,13 +50,13 @@ const CocktailsSection = () => {
       >
         <div className="relative w-full">
           <div
-            className="flex gap-4 animate-[scroll-left_40s_linear_infinite]"
+            className="flex gap-4 animate-[scroll-left_40s_linear_infinite] hover:[animation-play-state:paused]"
             style={{ width: 'max-content' }}
           >
             {allImages.map((src, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-64 h-80 md:w-72 md:h-96 rounded-lg overflow-hidden"
+                className="flex-shrink-0 w-80 h-[26rem] md:w-96 md:h-[30rem] rounded-lg overflow-hidden"
               >
                 <img
                   src={src}
