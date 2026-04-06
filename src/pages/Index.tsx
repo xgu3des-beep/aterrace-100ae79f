@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import CocktailsSection from '@/components/CocktailsSection';
 import ExperienceSection from '@/components/ExperienceSection';
-import GallerySection from '@/components/GallerySection';
+
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ReservationSection from '@/components/ReservationSection';
 import LocationSection from '@/components/LocationSection';
