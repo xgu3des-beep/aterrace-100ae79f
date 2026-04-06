@@ -82,7 +82,7 @@ const AboutSection = () => {
             </p>
           </motion.div>
         </div>
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20">
+        <div className="flex-1 w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20">
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
