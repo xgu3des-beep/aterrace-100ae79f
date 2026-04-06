@@ -90,17 +90,6 @@ const AboutSection = () => {
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
-            {/* Step counter */}
-            <motion.span
-              key={`step-${active}`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 0.4, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 block"
-            >
-              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-            </motion.span>
-
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -114,7 +103,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-                  className="block text-2xl mb-5"
+                  className="block text-5xl md:text-6xl mb-5"
                 >
                   {items[active].emoji}
                 </motion.span>
@@ -129,20 +118,16 @@ const AboutSection = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Progress dots */}
-            <div className="flex items-center gap-3 mt-12">
-              {items.map((_, i) => (
-                <motion.span
-                  key={i}
-                  animate={{
-                    width: i === active ? 32 : 8,
-                    backgroundColor: i === active ? 'hsl(var(--primary))' : 'hsl(30 20% 90% / 0.15)',
-                  }}
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                  className="block h-[3px] rounded-full"
-                />
-              ))}
-            </div>
+            {/* Step counter */}
+            <motion.span
+              key={`step-${active}`}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 0.4, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mt-12 block"
+            >
+              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+            </motion.span>
           </div>
 
           {/* Right: Image column */}
