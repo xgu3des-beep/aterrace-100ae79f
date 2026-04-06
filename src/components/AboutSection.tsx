@@ -65,7 +65,7 @@ const AboutSection = () => {
       style={{ height: `${items.length * 100}vh` }}
     >
       {/* Section header */}
-      <div className="container mx-auto px-6 pt-16 md:pt-20 pb-4 text-center">
+      <div className="container mx-auto px-6 pt-12 md:pt-16 pb-2 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ const AboutSection = () => {
             O Nosso Espaço
           </span>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a escapatória ideal à rotina casa-trabalho.
+            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
           </p>
         </motion.div>
       </div>
