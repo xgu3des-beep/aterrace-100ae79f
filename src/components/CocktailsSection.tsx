@@ -20,7 +20,7 @@ const CocktailsSection = () => {
             {t.cocktails.label}
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            {t.cocktails.title}
+            ✦ {t.cocktails.title} ✦
           </h2>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
             {t.cocktails.sub}
