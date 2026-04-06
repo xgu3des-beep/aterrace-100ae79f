@@ -7,7 +7,8 @@ import naturezaImg from '@/assets/natureza.webp';
 
 const items = [
   {
-    title: 'O Espaço',
+    title: 'Ambiente Natural',
+    emoji: '🌿',
     description:
       'Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre 30 hectares de paisagem verde.',
     img: espacoImg,
@@ -15,20 +16,23 @@ const items = [
   },
   {
     title: 'Cocktails de Autor',
+    emoji: '🍸',
     description:
       'Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.',
     img: cocktailsImg,
     alt: 'Bar de Cocktails',
   },
   {
-    title: 'Eventos & Experiências',
+    title: 'Convívio Social',
+    emoji: '👥',
     description:
       'De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.',
     img: experienciasImg,
     alt: 'Sala de jogos e eventos',
   },
   {
-    title: 'Natureza & Tranquilidade',
+    title: 'Entretenimento',
+    emoji: '✨',
     description:
       'Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.',
     img: naturezaImg,
@@ -105,13 +109,15 @@ const AboutSection = () => {
                 exit={{ opacity: 0, y: -20, filter: 'blur(4px)' }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Accent line */}
+                {/* Emoji icon */}
                 <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: 48 }}
-                  transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-                  className="block h-[2px] bg-primary mb-5"
-                />
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+                  className="block text-2xl mb-5"
+                >
+                  {items[active].emoji}
+                </motion.span>
 
                 <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
                   {items[active].title}
