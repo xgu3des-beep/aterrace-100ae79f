@@ -76,7 +76,7 @@ const AboutSection = () => {
             O Nosso Espaço
           </span>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a escapatória ideal à rotina casa-trabalho.
+            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
           </p>
         </motion.div>
       </div>
