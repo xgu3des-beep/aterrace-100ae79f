@@ -130,6 +130,7 @@ const AboutSection = () => {
               >
                 {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
             </motion.span>
+            </AnimatePresence>
           </div>
 
           {/* Right: Image column */}

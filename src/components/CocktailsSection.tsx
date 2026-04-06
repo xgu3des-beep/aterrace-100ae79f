@@ -72,7 +72,7 @@ const CocktailsSection = () => {
 
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mt-12"
+          className="text-center mt-8"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
