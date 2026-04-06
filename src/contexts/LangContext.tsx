@@ -63,6 +63,9 @@ const translations = {
         { text: '"Ambiente fantástico e cocktails de excelência. O staff é super atencioso e simpático."', author: 'Pedro Costa', location: 'Matosinhos', rating: 5, photo: 'https://randomuser.me/api/portraits/men/75.jpg' },
         { text: '"Perfeito para um date night ou para relaxar com amigos. Vista incrível sobre o parque!"', author: 'Sofia Martins', location: 'Porto', rating: 4, photo: 'https://randomuser.me/api/portraits/women/22.jpg' },
         { text: '"Descoberta do ano! Voltarei sempre que puder. Recomendo o Terrace Sunset."', author: 'Miguel Santos', location: 'Trofa', rating: 5, photo: 'https://randomuser.me/api/portraits/men/45.jpg' },
+        { text: '"O terraço é simplesmente maravilhoso. A carta de cocktails surpreende sempre com novidades."', author: 'Inês Oliveira', location: 'Ermesinde', rating: 5, photo: 'https://randomuser.me/api/portraits/women/55.jpg' },
+        { text: '"Celebrei o meu aniversário aqui e foi perfeito. Serviço impecável do início ao fim."', author: 'Tiago Mendes', location: 'Valongo', rating: 5, photo: 'https://randomuser.me/api/portraits/men/52.jpg' },
+        { text: '"Adoro o conceito. Um bar rodeado de natureza onde se respira tranquilidade. Nota 10!"', author: 'Beatriz Rocha', location: 'Gondomar', rating: 5, photo: 'https://randomuser.me/api/portraits/women/33.jpg' },
       ],
     },
     reservation: {
