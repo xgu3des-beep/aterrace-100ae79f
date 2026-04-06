@@ -113,8 +113,8 @@ const translations = {
       p3: 'We\'re not just a bar — we\'re a destination.',
     },
     cocktails: {
-      label: 'Cocktails & Menu',
-      title: 'Creations That Tell Stories',
+      label: 'Gallery',
+      title: 'Our cocktails',
       sub: 'Each cocktail is a sensory journey, made with fresh ingredients and contemporary mixology techniques.',
       items: [
         { name: 'Terrace Sunset', desc: 'Gin, blood orange juice, elderflower syrup, ginger foam', tag: 'Signature' },

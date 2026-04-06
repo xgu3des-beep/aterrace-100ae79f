@@ -8,7 +8,7 @@ const CocktailsSection = () => {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="menu" className="py-24 md:py-32">
+    <section id="galeria" className="py-24 md:py-32">
       <div className="container mx-auto px-6" ref={ref}>
         <motion.div
           className="text-center mb-16"
