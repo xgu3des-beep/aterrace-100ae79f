@@ -7,7 +7,8 @@ import naturezaImg from '@/assets/natureza.webp';
 
 const items = [
   {
-    title: 'O Espaço',
+    title: 'Ambiente Natural',
+    emoji: '🌿',
     description:
       'Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre 30 hectares de paisagem verde.',
     img: espacoImg,
@@ -15,20 +16,23 @@ const items = [
   },
   {
     title: 'Cocktails de Autor',
+    emoji: '🍸',
     description:
       'Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.',
     img: cocktailsImg,
     alt: 'Bar de Cocktails',
   },
   {
-    title: 'Eventos & Experiências',
+    title: 'Convívio Social',
+    emoji: '👥',
     description:
       'De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.',
     img: experienciasImg,
     alt: 'Sala de jogos e eventos',
   },
   {
-    title: 'Natureza & Tranquilidade',
+    title: 'Entretenimento',
+    emoji: '✨',
     description:
       'Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.',
     img: naturezaImg,
