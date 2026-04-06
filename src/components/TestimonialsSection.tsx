@@ -1,5 +1,5 @@
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { useLang } from '@/contexts/LangContext';
 import { Star } from 'lucide-react';
 
@@ -14,10 +14,76 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
+interface TestimonialItem {
+  text: string;
+  author: string;
+  location: string;
+  rating: number;
+  photo: string;
+}
+
+const TestimonialsColumn = ({
+  testimonials,
+  className = '',
+  duration = 15,
+}: {
+  testimonials: TestimonialItem[];
+  className?: string;
+  duration?: number;
+}) => {
+  return (
+    <div className={`relative ${className}`}>
+      <motion.div
+        animate={{ translateY: '-50%' }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: 'linear',
+          repeatType: 'loop',
+        }}
+        className="flex flex-col gap-6 pb-6"
+      >
+        {[...new Array(2)].map((_, index) => (
+          <React.Fragment key={index}>
+            {testimonials.map((item, i) => (
+              <div
+                key={`${index}-${i}`}
+                className="bg-card border border-border rounded-lg p-6 break-inside-avoid"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <img
+                    src={item.photo}
+                    alt={item.author}
+                    className="w-10 h-10 rounded-full object-cover"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p className="font-body text-sm font-semibold text-foreground">{item.author}</p>
+                    <p className="font-body text-xs text-muted-foreground">{item.location}</p>
+                  </div>
+                </div>
+                <StarRating rating={item.rating} />
+                <p className="font-body text-sm text-foreground/90 mt-3 leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </React.Fragment>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
 const TestimonialsSection = () => {
   const { t } = useLang();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
+
+  const items = t.testimonials.items;
+  const firstColumn = items.slice(0, 2);
+  const secondColumn = items.slice(2, 4);
+  const thirdColumn = items.slice(4, 6);
 
   return (
     <section id="testemunhos" className="py-24 md:py-32 bg-warm">
@@ -51,33 +117,10 @@ const TestimonialsSection = () => {
           <span className="font-body text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {t.testimonials.items.map((item, i) => (
-            <motion.div
-              key={i}
-              className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-all duration-500"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <img
-                  src={item.photo}
-                  alt={item.author}
-                  className="w-10 h-10 rounded-full object-cover"
-                  loading="lazy"
-                />
-                <div>
-                  <p className="font-body text-sm font-semibold text-foreground">{item.author}</p>
-                  <p className="font-body text-xs text-muted-foreground">{item.location}</p>
-                </div>
-              </div>
-              <StarRating rating={item.rating} />
-              <p className="font-body text-sm text-foreground/90 mt-3 leading-relaxed">
-                {item.text}
-              </p>
-            </motion.div>
-          ))}
+        <div className="flex justify-center gap-6 max-w-6xl mx-auto h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+          <TestimonialsColumn testimonials={firstColumn} duration={18} className="hidden md:block w-1/3" />
+          <TestimonialsColumn testimonials={secondColumn} duration={22} className="w-full md:w-1/3" />
+          <TestimonialsColumn testimonials={thirdColumn} duration={16} className="hidden lg:block w-1/3" />
         </div>
       </div>
     </section>
