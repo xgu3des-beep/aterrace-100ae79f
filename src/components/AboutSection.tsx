@@ -119,14 +119,16 @@ const AboutSection = () => {
             </AnimatePresence>
 
             {/* Step counter */}
-            <motion.span
-              key={`step-${active}`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 0.4, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mt-12 block"
-            >
-              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`step-${active}`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 0.4, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mt-12 block"
+              >
+                {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
             </motion.span>
           </div>
 
