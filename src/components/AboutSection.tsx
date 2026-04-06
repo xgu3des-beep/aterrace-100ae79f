@@ -64,46 +64,25 @@ const AboutSection = () => {
       className="relative"
       style={{ height: `${items.length * 100}vh` }}
     >
-      {/* Section header */}
-      <div className="container mx-auto px-6 pt-12 md:pt-16 pb-2 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
-            O Nosso Espaço
-          </span>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Ambient background that shifts per card */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
-          className="fixed inset-0 pointer-events-none -z-10"
-          style={{
-            background: [
-              'radial-gradient(ellipse at 30% 50%, hsl(25 30% 14%) 0%, hsl(20 10% 6%) 70%)',
-              'radial-gradient(ellipse at 70% 40%, hsl(20 15% 12%) 0%, hsl(20 8% 5%) 70%)',
-              'radial-gradient(ellipse at 40% 60%, hsl(15 20% 13%) 0%, hsl(18 10% 6%) 70%)',
-              'radial-gradient(ellipse at 60% 50%, hsl(22 18% 11%) 0%, hsl(20 12% 5%) 70%)',
-            ][active],
-          }}
-        />
-      </AnimatePresence>
-
       {/* Sticky viewport */}
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20">
+      <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+        {/* Section header — inside sticky */}
+        <div className="w-full px-6 pt-8 pb-4 text-center shrink-0">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
+              O Nosso Espaço
+            </span>
+            <p className="font-body text-muted-foreground max-w-xl mx-auto text-sm">
+              Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
+            </p>
+          </motion.div>
+        </div>
+        <div className="flex-1 w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20">
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
