@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { LangProvider } from '@/contexts/LangContext';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
