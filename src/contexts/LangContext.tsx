@@ -28,7 +28,7 @@ const translations = {
     },
     cocktails: {
       label: 'Galeria',
-      title: 'Os nossos cocktails',
+      title: 'Os nossos Cocktails',
       sub: 'Cada cocktail é uma viagem sensorial, feito com ingredientes frescos e técnicas de mixologia contemporânea.',
       items: [
         { name: 'Terrace Sunset', desc: 'Gin, sumo de laranja sanguínea, xarope de flor de sabugueiro, espuma de gengibre', tag: 'Assinatura' },
