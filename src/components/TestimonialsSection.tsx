@@ -81,9 +81,9 @@ const TestimonialsSection = () => {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   const items = t.testimonials.items;
-  const firstColumn = items.slice(0, 2);
-  const secondColumn = items.slice(2, 4);
-  const thirdColumn = items.slice(4, 6);
+  const firstColumn = items.slice(0, 3);
+  const secondColumn = items.slice(3, 6);
+  const thirdColumn = items.slice(6, 9);
 
   return (
     <section id="testemunhos" className="py-24 md:py-32 bg-warm">
