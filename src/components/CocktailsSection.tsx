@@ -25,7 +25,7 @@ const CocktailsSection = () => {
     <section id="galeria" className="py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-6" ref={ref}>
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
