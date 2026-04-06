@@ -67,7 +67,7 @@ const AboutSection = () => {
       {/* Sticky viewport */}
       <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
         {/* Section header — inside sticky */}
-        <div className="w-full px-6 pt-8 pb-4 text-center shrink-0">
+        <div className="w-full px-6 pt-5 pb-2 text-center shrink-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
