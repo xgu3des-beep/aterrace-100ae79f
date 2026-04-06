@@ -73,13 +73,10 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
         >
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
-            Espaço
+            O Nosso Espaço
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            <span className="text-base md:text-2xl align-middle">✦</span> O Nosso Conceito <span className="text-base md:text-2xl align-middle">✦</span>
-          </h2>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Um terraço onde a natureza, os cocktails de autor e o convívio se encontram para criar momentos únicos.
+            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a escapatória ideal à rotina casa-trabalho.
           </p>
         </motion.div>
       </div>
