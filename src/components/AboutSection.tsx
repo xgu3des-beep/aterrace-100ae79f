@@ -109,13 +109,15 @@ const AboutSection = () => {
                 exit={{ opacity: 0, y: -20, filter: 'blur(4px)' }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Accent line */}
+                {/* Emoji icon */}
                 <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: 48 }}
-                  transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-                  className="block h-[2px] bg-primary mb-5"
-                />
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+                  className="block text-2xl mb-5"
+                >
+                  {items[active].emoji}
+                </motion.span>
 
                 <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
                   {items[active].title}
