@@ -14,10 +14,9 @@ const Navbar = () => {
   }, []);
 
   const links = [
-    { href: '#conceito', label: t.nav.conceito },
-    { href: '#menu', label: t.nav.menu },
-    { href: '#experiencia', label: t.nav.experiencia },
+    { href: '#conceito', label: t.nav.espaco },
     { href: '#galeria', label: t.nav.galeria },
+    { href: '#testemunhos', label: t.nav.testemunhos },
     { href: '#contacto', label: t.nav.contacto },
   ];
 
