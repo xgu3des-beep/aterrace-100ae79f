@@ -8,63 +8,77 @@ const LocationSection = () => {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contacto" className="py-24 md:py-32 bg-warm">
-      <div className="container mx-auto px-6" ref={ref}>
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
-            {t.location.label}
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            {t.location.title}
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Map placeholder */}
+    <section id="contacto" className="border-t border-border">
+      <div className="py-24 md:py-32">
+        <div className="container mx-auto px-6" ref={ref}>
           <motion.div
-            className="bg-secondary rounded aspect-[4/3] flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="text-center">
-              <div className="text-3xl mb-2">📍</div>
-              <p className="font-body text-sm text-muted-foreground">{t.location.address}</p>
-            </div>
+            <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
+              {t.location.label}
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+              {t.location.title}
+            </h2>
           </motion.div>
 
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.hours}</h3>
-              <ul className="space-y-2">
-                {t.location.hoursList.map((h, i) => (
-                  <li key={i} className="font-body text-sm text-muted-foreground">{h}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.contact}</h3>
-              <p className="font-body text-sm text-muted-foreground mb-1">{t.location.phone}</p>
-              <p className="font-body text-sm text-muted-foreground">{t.location.email}</p>
-            </div>
-            <a
-              href="#reservar"
-              className="inline-block gradient-red px-8 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity"
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, x: -20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
-              {t.nav.reservar}
-            </a>
-          </motion.div>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.hours}</h3>
+                <ul className="space-y-2">
+                  {t.location.hoursList.map((h, i) => (
+                    <li key={i} className="font-body text-sm text-muted-foreground">{h}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.contact}</h3>
+                <p className="font-body text-sm text-muted-foreground mb-1">{t.location.phone}</p>
+                <p className="font-body text-sm text-muted-foreground">{t.location.email}</p>
+              </div>
+              <div>
+                <p className="font-body text-sm text-muted-foreground">📍 {t.location.address}</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, x: 20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <a
+                href="#reservar"
+                className="inline-block gradient-red px-8 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity"
+              >
+                {t.nav.reservar}
+              </a>
+            </motion.div>
+          </div>
         </div>
+      </div>
+
+      {/* Full-width Google Map */}
+      <div className="w-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.8505805827026!2d-8.614128587980682!3d41.29035630188806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd245d6cbadb2cdb%3A0x218d4931ba2d2bf9!2sAvioso%20Terrace!5e0!3m2!1spt-PT!2spt!4v1775481659310!5m2!1spt-PT!2spt"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Avioso Terrace Location"
+        />
       </div>
     </section>
   );
