@@ -2,6 +2,7 @@ import { motion, useInView, type Variants } from 'framer-motion';
 import { useRef } from 'react';
 import { useLang } from '@/contexts/LangContext';
 import { MapPin, Clock, Phone, Mail, Instagram } from 'lucide-react';
+import avisoTower from '@/assets/avioso-tower.png';
 
 const socialLinks = [
   { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/aviosoterrace' },
