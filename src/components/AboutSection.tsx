@@ -64,23 +64,6 @@ const AboutSection = () => {
       className="relative"
       style={{ height: `${items.length * 100}vh` }}
     >
-      {/* Section header */}
-      <div className="container mx-auto px-6 pt-12 md:pt-16 pb-2 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
-            O Nosso Espaço
-          </span>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
-          </p>
-        </motion.div>
-      </div>
-
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -107,6 +90,17 @@ const AboutSection = () => {
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
+
+            {/* Header — fixo dentro do sticky, sempre visível */}
+            <div className="mb-8">
+              <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
+                O Nosso Espaço
+              </span>
+              <p className="font-body text-sm text-muted-foreground max-w-sm">
+                Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
+              </p>
+            </div>
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
