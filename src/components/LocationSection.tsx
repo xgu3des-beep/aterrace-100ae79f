@@ -38,14 +38,14 @@ const LocationSection = () => {
       <div className="py-24 md:py-32 relative">
         {/* Decorative tower watermark */}
         <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] md:w-[500px] lg:w-[600px] h-full pointer-events-none select-none"
-          style={{ mixBlendMode: 'soft-light', opacity: 0.15 }}
+          className="absolute inset-0 pointer-events-none select-none"
+          style={{ mixBlendMode: 'soft-light', opacity: 0.18 }}
         >
           <img
             src={avisoTower}
             alt=""
             aria-hidden="true"
-            className="w-full h-full object-contain object-right"
+            className="w-full h-full object-cover"
           />
         </div>
         <motion.div
