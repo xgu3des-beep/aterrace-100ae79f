@@ -75,10 +75,10 @@ const AboutSection = () => {
           className="fixed inset-0 pointer-events-none -z-10"
           style={{
             background: [
-              'radial-gradient(ellipse at 30% 50%, hsl(140 45% 16%) 0%, hsl(140 15% 5%) 70%)',
-              'radial-gradient(ellipse at 70% 40%, hsl(45 50% 16%) 0%, hsl(45 15% 5%) 70%)',
-              'radial-gradient(ellipse at 40% 60%, hsl(270 40% 16%) 0%, hsl(270 14% 5%) 70%)',
-              'radial-gradient(ellipse at 60% 50%, hsl(0 45% 16%) 0%, hsl(0 16% 5%) 70%)',
+              'radial-gradient(ellipse at 30% 50%, hsl(25 30% 14%) 0%, hsl(20 10% 6%) 70%)',
+              'radial-gradient(ellipse at 70% 40%, hsl(20 15% 12%) 0%, hsl(20 8% 5%) 70%)',
+              'radial-gradient(ellipse at 40% 60%, hsl(15 20% 13%) 0%, hsl(18 10% 6%) 70%)',
+              'radial-gradient(ellipse at 60% 50%, hsl(22 18% 11%) 0%, hsl(20 12% 5%) 70%)',
             ][active],
           }}
         />
