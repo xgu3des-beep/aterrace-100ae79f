@@ -7,18 +7,18 @@ import naturezaImg from '@/assets/natureza.webp';
 
 const items = [
   {
-    title: 'Ambiente Natural',
+    title: 'Lounge Exterior',
     emoji: '🌿',
     description:
-      'Rodeado pela natureza do Parque de Avioso, o nosso terraço convida a momentos de descontração com uma vista privilegiada sobre 30 hectares de paisagem verde.',
+      'Envolvida pela natureza do parque, a nossa ampla esplanada convida a momentos de pura descontração, com uma vista privilegiada sobre mais de 30 hectares de paisagem verde.',
     img: espacoImg,
     alt: 'O Espaço — Terraço Avioso',
   },
   {
-    title: 'Cocktails de Autor',
+    title: 'Bar',
     emoji: '🍸',
     description:
-      'Cada cocktail é uma experiência sensorial, preparado com ingredientes frescos e técnicas inovadoras que celebram os sabores locais.',
+      'É aqui que a magia acontece. Dispomos de uma vasta seleção de produtos, desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café, a qualquer hora do dia.',
     img: cocktailsImg,
     alt: 'Bar de Cocktails',
   },
@@ -26,17 +26,17 @@ const items = [
     title: 'Convívio Social',
     emoji: '👥',
     description:
-      'De noites de DJ a degustações privadas, o Avioso Terrace transforma cada visita numa memória única.',
+      'Nos dias mais frescos, a nossa espaçosa sala interior oferece conforto e um ambiente acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados, como festas de aniversário e celebrações especiais.',
     img: experienciasImg,
     alt: 'Sala de jogos e eventos',
   },
   {
     title: 'Entretenimento',
-    emoji: '✨',
+    emoji: '🎱',
     description:
-      'Afastado do ruído urbano, o terraço oferece um refúgio onde o tempo abranda e os sentidos despertam.',
+      'Para uma experiência completa, oferecemos noites de música ao vivo e DJ sets, bem como uma zona de snooker premium — garantindo que cada visita se transforma numa memória única.',
     img: naturezaImg,
-    alt: 'Lounge interior',
+    alt: 'Entretenimento — Snooker e DJ',
   },
 ];
 
@@ -97,7 +97,7 @@ const AboutSection = () => {
                 O Nosso Espaço
               </span>
               <p className="font-body text-sm text-muted-foreground max-w-sm">
-                Fundado em 2023, o Avioso Terrace está aberto todos os dias das 13h00 à 01h00 — a sua escapatória ideal à rotina casa-trabalho.
+                Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõem de 500 lugares de estacionamento gratuito.
               </p>
             </div>
 
