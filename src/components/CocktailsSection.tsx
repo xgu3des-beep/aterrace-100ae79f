@@ -22,7 +22,7 @@ const CocktailsSection = () => {
   const allImages = [...cocktailImages, ...cocktailImages];
 
   return (
-    <section id="galeria" className="py-16 md:py-24 overflow-hidden">
+    <section id="galeria" className="pt-4 pb-16 md:pt-6 md:pb-24 overflow-hidden">
       <div className="container mx-auto px-6" ref={ref}>
         <motion.div
           className="text-center mb-8"
