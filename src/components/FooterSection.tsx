@@ -55,8 +55,8 @@ const FooterSection = () => {
             <nav className="flex flex-col gap-2.5">
               {[
                 { label: t.nav.espaco, href: '#espaco' },
-                { label: t.nav.cocktails, href: '#cocktails' },
-                { label: t.nav.experiencia, href: '#experiencia' },
+                { label: t.nav.galeria, href: '#galeria' },
+                { label: t.nav.testemunhos, href: '#testemunhos' },
                 { label: t.nav.contacto, href: '#contacto' },
                 { label: t.nav.reservar, href: '#reservar' },
               ].map(({ label, href }) => (
