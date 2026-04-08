@@ -85,21 +85,22 @@ const AboutSection = () => {
       </AnimatePresence>
 
       {/* Sticky viewport */}
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+
+        {/* Header — topo da secção sticky, acima de tudo */}
+        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pt-10 pb-6 border-b border-border/30 mb-8">
+          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
+            O Nosso Espaço
+          </span>
+          <p className="font-body text-sm text-muted-foreground max-w-xl">
+            Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõem de 500 lugares de estacionamento gratuito.
+          </p>
+        </div>
+
+        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20 flex-1 min-h-0">
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
-
-            {/* Header — fixo dentro do sticky, sempre visível */}
-            <div className="mb-8">
-              <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
-                O Nosso Espaço
-              </span>
-              <p className="font-body text-sm text-muted-foreground max-w-sm">
-                Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõem de 500 lugares de estacionamento gratuito.
-              </p>
-            </div>
 
             <AnimatePresence mode="wait">
               <motion.div
