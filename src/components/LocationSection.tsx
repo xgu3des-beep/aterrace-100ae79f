@@ -18,7 +18,7 @@ const socialLinks = [
 ];
 
 const LocationSection = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -29,7 +29,7 @@ const LocationSection = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
   return (
@@ -106,7 +106,7 @@ const LocationSection = () => {
               {/* Social Links */}
               <div className="mt-8 pt-6 border-t border-border/30">
                 <p className="font-body text-xs tracking-wider uppercase text-muted-foreground/60 mb-4">
-                  {t.lang === 'pt' ? 'Siga-nos' : 'Follow us'}
+                  {lang === 'pt' ? 'Siga-nos' : 'Follow us'}
                 </p>
                 <div className="flex gap-3">
                   {socialLinks.map(({ name, icon: Icon, href }) => (
@@ -135,7 +135,7 @@ const LocationSection = () => {
                   <MapPin className="w-5 h-5 text-gold" />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground">
-                  {t.lang === 'pt' ? 'Morada' : 'Address'}
+                  {lang === 'pt' ? 'Morada' : 'Address'}
                 </h3>
               </div>
               <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
@@ -148,7 +148,7 @@ const LocationSection = () => {
                   rel="noopener noreferrer"
                   className="block w-full text-center gradient-red px-6 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
                 >
-                  {t.lang === 'pt' ? 'Abrir no Google Maps' : 'Open in Google Maps'}
+                  {lang === 'pt' ? 'Abrir no Google Maps' : 'Open in Google Maps'}
                 </a>
                 <a
                   href="#reservar"
