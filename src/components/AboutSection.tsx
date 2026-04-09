@@ -15,10 +15,10 @@ const items = [
     alt: 'O Espaço — Terraço Avioso',
   },
   {
-    title: 'Bar',
+    title: 'O Bar',
     emoji: '🍸',
     description:
-      'É aqui que a magia acontece. Dispomos de uma vasta seleção de produtos, desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café, a qualquer hora do dia.',
+      'Dispomos de uma vasta seleção de produtos, desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
     img: cocktailsImg,
     alt: 'Bar de Cocktails',
   },
@@ -194,6 +194,8 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+      {/* Linha divisória no fundo da secção */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-border/40" />
     </section>
   );
 };
