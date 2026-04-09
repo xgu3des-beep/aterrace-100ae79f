@@ -75,7 +75,7 @@ const AboutSection = () => {
           className="fixed inset-0 pointer-events-none -z-10"
           style={{
             background: [
-              'radial-gradient(ellipse at 30% 50%, hsl(25 30% 14%) 0%, hsl(20 10% 6%) 70%)',
+              'radial-gradient(ellipse at 30% 50%, hsl(25 12% 10%) 0%, hsl(20 8% 5%) 70%)',
               'radial-gradient(ellipse at 70% 40%, hsl(20 15% 12%) 0%, hsl(20 8% 5%) 70%)',
               'radial-gradient(ellipse at 40% 60%, hsl(15 20% 13%) 0%, hsl(18 10% 6%) 70%)',
               'radial-gradient(ellipse at 60% 50%, hsl(22 18% 11%) 0%, hsl(20 12% 5%) 70%)',
@@ -87,12 +87,12 @@ const AboutSection = () => {
       {/* Sticky viewport */}
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
 
-        {/* Header — topo da secção sticky, acima de tudo */}
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pt-10 pb-6 border-b border-border/30 mb-8">
+        {/* Header — topo da secção sticky, centrado */}
+        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pt-10 pb-6 border-b border-border/30 mb-8 text-center">
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
             O Nosso Espaço
           </span>
-          <p className="font-body text-sm text-muted-foreground max-w-xl">
+          <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
             Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõem de 500 lugares de estacionamento gratuito.
           </p>
         </div>
