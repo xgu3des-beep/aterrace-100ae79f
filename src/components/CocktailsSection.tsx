@@ -6,7 +6,7 @@ const cocktailImages = [
   'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=500&fit=crop',
   'https://images.unsplash.com/photo-1536935338788-846bb9981813?w=400&h=500&fit=crop',
   'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=500&fit=crop',
-  'https://images.unsplash.com/photo-1541546006121-e8e0aafc1ece?w=400&h=500&fit=crop',
+  'https://images.unsplash.com/photo-1574006852726-31d021e91b3f?w=400&h=500&fit=crop',
   'https://images.unsplash.com/photo-1587223962930-cb7f31384c19?w=400&h=500&fit=crop',
   'https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?w=400&h=500&fit=crop',
   'https://images.unsplash.com/photo-1560512823-829485b8bf24?w=400&h=500&fit=crop',
