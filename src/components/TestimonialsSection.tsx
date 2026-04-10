@@ -93,9 +93,6 @@ const TestimonialsSection = () => {
           style={{ backgroundImage: `url(${testimonialsBg})` }}
         />
         <div className="absolute inset-0 bg-background/35" />
-          style={{ backgroundImage: `url(${testimonialsBg})` }}
-        />
-        <div className="absolute inset-0 bg-background/50" />
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
           className="text-center mb-6"
