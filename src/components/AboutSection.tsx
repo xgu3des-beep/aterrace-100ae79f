@@ -26,7 +26,7 @@ const items = [
     title: 'Sala de Convívio',
     emoji: '👥',
     description:
-      'Nos dias mais frescos, a nossa espaçosa sala interior oferece conforto e um ambiente acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados como celebrações especiais.',
+      'Nos dias mais frescos, a nossa espaçosa sala oferece conforto e um ambiente social acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados.',
     img: experienciasImg,
     alt: 'Sala de jogos e eventos',
   },
@@ -92,7 +92,7 @@ const AboutSection = () => {
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
             O Nosso Espaço
           </span>
-          <p className="font-body text-base text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto">
             Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
           </p>
         </div>
