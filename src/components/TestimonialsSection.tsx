@@ -89,10 +89,10 @@ const TestimonialsSection = () => {
   return (
     <section id="testemunhos" className="py-24 md:py-32 bg-warm relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-15"
+          className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${testimonialsBg})` }}
         />
-        <div className="absolute inset-0 bg-warm/80" />
+        <div className="absolute inset-0 bg-warm/65" />
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
           className="text-center mb-6"
