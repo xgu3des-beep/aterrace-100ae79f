@@ -89,7 +89,10 @@ const TestimonialsSection = () => {
   return (
     <section id="testemunhos" className="py-24 md:py-32 bg-warm relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-45"
+          className="absolute inset-0 bg-cover bg-center opacity-60"
+          style={{ backgroundImage: `url(${testimonialsBg})` }}
+        />
+        <div className="absolute inset-0 bg-background/35" />
           style={{ backgroundImage: `url(${testimonialsBg})` }}
         />
         <div className="absolute inset-0 bg-background/50" />
