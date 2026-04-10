@@ -18,7 +18,7 @@ const items = [
     title: 'O Bar',
     emoji: '🍸',
     description:
-      'Com uma vasta seleção de produtos, desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
+      'Desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
     img: cocktailsImg,
     alt: 'Bar de Cocktails',
   },
@@ -26,7 +26,7 @@ const items = [
     title: 'Sala de Convívio',
     emoji: '👥',
     description:
-      'Nos dias mais frescos, a nossa espaçosa sala interior oferece conforto e um ambiente acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados, como festas de aniversário e celebrações especiais.',
+      'Nos dias mais frescos, a nossa espaçosa sala interior oferece conforto e um ambiente acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados como celebrações especiais.',
     img: experienciasImg,
     alt: 'Sala de jogos e eventos',
   },
@@ -34,7 +34,7 @@ const items = [
     title: 'Entretenimento',
     emoji: '🎱',
     description:
-      'Para uma experiência completa, oferecemos noites de música ao vivo e DJ sets, bem como uma zona de snooker premium — garantindo que cada visita se transforma numa memória única.',
+      'Para uma experiência completa, oferecemos noites de música ao vivo e DJ sets, bem como uma zona de snooker premium — garantindo que cada visita se torna numa memória única.',
     img: naturezaImg,
     alt: 'Entretenimento — Snooker e DJ',
   },
@@ -88,11 +88,11 @@ const AboutSection = () => {
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pt-16">
 
         {/* Header — topo da secção sticky, centrado */}
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pt-10 pb-6 border-b border-border/30 mb-8 text-center">
+        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pb-6 border-b border-border/30 mb-8 text-center">
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
             O Nosso Espaço
           </span>
-          <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-base text-muted-foreground max-w-xl mx-auto">
             Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
           </p>
         </div>
