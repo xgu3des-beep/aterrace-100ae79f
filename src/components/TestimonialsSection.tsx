@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLang } from '@/contexts/LangContext';
 import { Star } from 'lucide-react';
+import testimonialsBg from '@/assets/testimonials-bg.webp';
 
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex gap-0.5">
@@ -86,7 +87,12 @@ const TestimonialsSection = () => {
   const thirdColumn = items.slice(6, 9);
 
   return (
-    <section id="testemunhos" className="py-24 md:py-32 bg-warm">
+    <section id="testemunhos" className="py-24 md:py-32 bg-warm relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-15"
+          style={{ backgroundImage: `url(${testimonialsBg})` }}
+        />
+        <div className="absolute inset-0 bg-warm/80" />
       <div className="container mx-auto px-6" ref={ref}>
         <motion.div
           className="text-center mb-6"
