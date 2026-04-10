@@ -18,12 +18,12 @@ const items = [
     title: 'O Bar',
     emoji: '🍸',
     description:
-      'Dispomos de uma vasta seleção de produtos, desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
+      'Com uma vasta seleção de produtos, desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
     img: cocktailsImg,
     alt: 'Bar de Cocktails',
   },
   {
-    title: 'Convívio Social',
+    title: 'Sala de Convívio',
     emoji: '👥',
     description:
       'Nos dias mais frescos, a nossa espaçosa sala interior oferece conforto e um ambiente acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados, como festas de aniversário e celebrações especiais.',
@@ -93,7 +93,7 @@ const AboutSection = () => {
             O Nosso Espaço
           </span>
           <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
-            Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõem de 500 lugares de estacionamento gratuito.
+            Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
           </p>
         </div>
 
