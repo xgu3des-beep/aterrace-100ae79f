@@ -93,7 +93,7 @@ const AboutSection = () => {
             O Nosso Espaço
           </span>
           <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto">
-            Fundado em 2023 no coração do Parque de Avioso, o <em>Avioso Terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
+            Fundado em 2023 no coração do Parque de Avioso, o <em className="italic font-display text-foreground">terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
           </p>
         </div>
 
