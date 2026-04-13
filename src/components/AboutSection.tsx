@@ -4,43 +4,14 @@ import espacoImg from '@/assets/espaco.webp';
 import cocktailsImg from '@/assets/cocktails.webp';
 import experienciasImg from '@/assets/experiencias.webp';
 import naturezaImg from '@/assets/natureza.webp';
+import { useLang } from '@/contexts/LangContext';
 
-const items = [
-  {
-    title: 'Lounge Exterior',
-    emoji: '🌿',
-    description:
-      'Envolvida pela natureza do parque, a nossa ampla esplanada convida a momentos de pura descontração, com uma vista privilegiada sobre mais de 30 hectares de paisagem verde.',
-    img: espacoImg,
-    alt: 'O Espaço — Terraço Avioso',
-  },
-  {
-    title: 'O Bar',
-    emoji: '🍸',
-    description:
-      'Desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
-    img: cocktailsImg,
-    alt: 'Bar de Cocktails',
-  },
-  {
-    title: 'Sala de Convívio',
-    emoji: '👥',
-    description:
-      'Nos dias mais frescos, a nossa espaçosa sala oferece conforto e um ambiente social acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados.',
-    img: experienciasImg,
-    alt: 'Sala de jogos e eventos',
-  },
-  {
-    title: 'Entretenimento',
-    emoji: '🎱',
-    description:
-      'Para uma experiência completa, oferecemos noites de música ao vivo e DJ sets, bem como uma zona de snooker premium — garantindo que cada visita se torna numa memória única.',
-    img: naturezaImg,
-    alt: 'Entretenimento — Snooker e DJ',
-  },
-];
+const images = [espacoImg, cocktailsImg, experienciasImg, naturezaImg];
+const alts = ['O Espaço — Terraço Avioso', 'Bar de Cocktails', 'Sala de jogos e eventos', 'Entretenimento — Snooker e DJ'];
 
 const AboutSection = () => {
+  const { t } = useLang();
+  const items = t.space.items;
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -90,10 +61,10 @@ const AboutSection = () => {
         {/* Header — topo da secção sticky, centrado */}
         <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pb-6 border-b border-border/30 mb-8 text-center">
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
-            O Nosso Espaço
+            {t.space.label}
           </span>
           <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto">
-            Fundado em 2023 no coração do Parque de Avioso, o <em className="italic font-display text-foreground">terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
+            {t.space.intro} <em className="italic font-display text-foreground">terrace</em> {t.space.introAfter}
           </p>
         </div>
 
@@ -162,8 +133,8 @@ const AboutSection = () => {
 
                 <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]">
                   <img
-                    src={items[active].img}
-                    alt={items[active].alt}
+                    src={images[active]}
+                    alt={alts[active]}
                     className="w-full h-auto block"
                   />
                   {/* Top gradient overlay for depth */}
@@ -185,8 +156,8 @@ const AboutSection = () => {
                 className="rounded-xl overflow-hidden"
               >
                 <img
-                  src={items[active].img}
-                  alt={items[active].alt}
+                  src={images[active]}
+                  alt={alts[active]}
                   className="w-full h-40 object-cover"
                 />
               </motion.div>

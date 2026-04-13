@@ -26,6 +26,17 @@ const translations = {
       p2: 'Aqui, os cocktails são criados com ingredientes selecionados, o ambiente convida à descontração, e a natureza envolvente transforma qualquer visita num escape da rotina urbana.',
       p3: 'Não somos apenas um bar — somos um destino.',
     },
+    space: {
+      label: 'O Nosso Espaço',
+      intro: 'Fundado em 2023 no coração do Parque de Avioso, o',
+      introAfter: 'está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.',
+      items: [
+        { title: 'Lounge Exterior', emoji: '🌿', description: 'Envolvida pela natureza do parque, a nossa ampla esplanada convida a momentos de pura descontração, com uma vista privilegiada sobre mais de 30 hectares de paisagem verde.' },
+        { title: 'O Bar', emoji: '🍸', description: 'Desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.' },
+        { title: 'Sala de Convívio', emoji: '👥', description: 'Nos dias mais frescos, a nossa espaçosa sala oferece conforto e um ambiente social acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados.' },
+        { title: 'Entretenimento', emoji: '🎱', description: 'Para uma experiência completa, oferecemos noites de música ao vivo e DJ sets, bem como uma zona de snooker premium — garantindo que cada visita se torna numa memória única.' },
+      ],
+    },
     cocktails: {
       label: 'Galeria',
       title: 'Os nossos Cocktails',
@@ -120,6 +131,17 @@ const translations = {
       p1: 'Nestled in a privileged natural setting near Porto, Avioso Terrace was born from the desire to create a space where every moment becomes a sensory experience.',
       p2: 'Here, cocktails are crafted with selected ingredients, the atmosphere invites relaxation, and the surrounding nature transforms any visit into an escape from the urban routine.',
       p3: 'We\'re not just a bar — we\'re a destination.',
+    },
+    space: {
+      label: 'Our Space',
+      intro: 'Founded in 2023 in the heart of Parque de Avioso,',
+      introAfter: 'is open every day from 1 PM to 1 AM and offers 500 free parking spaces for the whole family.',
+      items: [
+        { title: 'Outdoor Lounge', emoji: '🌿', description: 'Surrounded by the park\'s nature, our spacious terrace invites moments of pure relaxation, with a privileged view over more than 30 hectares of green landscape.' },
+        { title: 'The Bar', emoji: '🍸', description: 'From refreshing signature cocktails to snacks like Porto-style hot dogs, assorted tapas, and one of our specialties: the classic pastel de nata — the perfect complement to your coffee.' },
+        { title: 'Social Lounge', emoji: '👥', description: 'On cooler days, our spacious indoor area offers comfort and a welcoming social atmosphere. The entire space is designed for leisure, whether for casual meetups or private events.' },
+        { title: 'Entertainment', emoji: '🎱', description: 'For the complete experience, we offer live music nights and DJ sets, as well as a premium snooker area — ensuring every visit becomes a unique memory.' },
+      ],
     },
     cocktails: {
       label: 'Gallery',
