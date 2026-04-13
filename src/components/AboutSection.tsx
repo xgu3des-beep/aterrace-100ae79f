@@ -85,7 +85,7 @@ const AboutSection = () => {
       </AnimatePresence>
 
       {/* Sticky viewport — pt-16 para compensar a navbar */}
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pt-16">
+      <div className="sticky top-0 h-screen flex flex-col justify-start overflow-hidden pt-24">
 
         {/* Header — topo da secção sticky, centrado */}
         <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pb-6 border-b border-border/30 mb-8 text-center">
