@@ -50,7 +50,7 @@ const LocationSection = () => {
               {t.location.label}
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-              {t.location.titleBefore}<em className="text-primary font-display italic">terrace</em>
+              {t.location.titleBefore}<TypewriterText text="terrace" trigger={inView} />
             </h2>
           </motion.div>
 
