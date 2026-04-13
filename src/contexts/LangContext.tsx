@@ -18,6 +18,7 @@ const translations = {
       subAfter: ', respire o ar puro e desfrute do momento.',
       cta: 'Reservar Mesa',
       cta2: 'Explorar Menu',
+      locationBadge: 'Parque de Avioso — Maia, Portugal',
     },
     about: {
       label: 'O Conceito',
@@ -62,6 +63,7 @@ const translations = {
     gallery: {
       label: 'Galeria',
       title: 'Momentos no Terraço',
+      placeholders: ['Terraço ao pôr-do-sol', 'Cocktail de assinatura', 'Ambiente nocturno', 'Natureza envolvente', 'Grupo de amigos', 'Detalhe do bar'],
     },
     testimonials: {
       label: 'O Que Dizem',
@@ -91,6 +93,7 @@ const translations = {
       guests: 'Nº de Pessoas',
       message: 'Mensagem (opcional)',
       submit: 'Confirmar Reserva',
+      success: 'Obrigado! Entraremos em contacto brevemente.',
     },
     location: {
       label: 'Encontre-nos',
@@ -124,6 +127,7 @@ const translations = {
       subAfter: ', breathe in the fresh air, and savour the moment.',
       cta: 'Reserve a Table',
       cta2: 'Explore Menu',
+      locationBadge: 'Parque de Avioso — Maia, Portugal',
     },
     about: {
       label: 'The Concept',
@@ -168,6 +172,7 @@ const translations = {
     gallery: {
       label: 'Gallery',
       title: 'Moments on the Terrace',
+      placeholders: ['Terrace at sunset', 'Signature cocktail', 'Night atmosphere', 'Surrounding nature', 'Group of friends', 'Bar detail'],
     },
     testimonials: {
       label: 'Testimonials',
@@ -197,6 +202,7 @@ const translations = {
       guests: 'Number of Guests',
       message: 'Message (optional)',
       submit: 'Confirm Reservation',
+      success: 'Thank you! We will get back to you shortly.',
     },
     location: {
       label: 'Find Us',

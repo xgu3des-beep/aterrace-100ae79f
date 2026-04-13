@@ -7,14 +7,7 @@ const GallerySection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
-  const placeholders = [
-    'Terraço ao pôr-do-sol',
-    'Cocktail de assinatura',
-    'Ambiente nocturno',
-    'Natureza envolvente',
-    'Grupo de amigos',
-    'Detalhe do bar',
-  ];
+  const placeholders = t.gallery.placeholders;
 
   return (
     <section id="galeria" className="py-24 md:py-32">
