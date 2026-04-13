@@ -133,8 +133,8 @@ const AboutSection = () => {
 
                 <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]">
                   <img
-                    src={items[active].img}
-                    alt={items[active].alt}
+                    src={images[active]}
+                    alt={alts[active]}
                     className="w-full h-auto block"
                   />
                   {/* Top gradient overlay for depth */}
@@ -156,8 +156,8 @@ const AboutSection = () => {
                 className="rounded-xl overflow-hidden"
               >
                 <img
-                  src={items[active].img}
-                  alt={items[active].alt}
+                  src={images[active]}
+                  alt={alts[active]}
                   className="w-full h-40 object-cover"
                 />
               </motion.div>
