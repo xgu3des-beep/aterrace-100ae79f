@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLang } from '@/contexts/LangContext';
-import { Star, Sparkles } from 'lucide-react';
+import { Star } from 'lucide-react';
 import testimonialsBg from '@/assets/testimonials-bg.webp';
 
 const StarRating = ({ rating }: { rating: number }) => (
