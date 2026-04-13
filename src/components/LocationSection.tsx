@@ -1,7 +1,35 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Clock, Phone, MapPin } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
+
+const TypewriterText = ({ text, trigger }: { text: string; trigger: boolean }) => {
+  const [displayed, setDisplayed] = useState('');
+
+  useEffect(() => {
+    if (!trigger) return;
+    setDisplayed('');
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(interval);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [trigger, text]);
+
+  return (
+    <em className="text-primary font-display italic">
+      {displayed}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
+        className="inline-block w-[2px] h-[0.8em] bg-primary ml-[2px] align-baseline"
+        style={{ display: displayed.length >= text.length ? 'none' : 'inline-block' }}
+      />
+    </em>
+  );
+};
 
 const LocationSection = () => {
   const { t } = useLang();
