@@ -40,7 +40,7 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         >
           <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
             <MapPin className="w-3.5 h-3.5" />
-            Parque de Avioso — Maia, Portugal
+            {t.hero.locationBadge}
           </span>
         </motion.div>
 

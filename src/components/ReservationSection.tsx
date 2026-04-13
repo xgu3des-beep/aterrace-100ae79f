@@ -54,7 +54,7 @@ const ReservationSection = () => {
           ) : (
             <div className="sm:col-span-2 text-center py-12">
               <p className="font-display text-2xl text-gold mb-2">✓</p>
-              <p className="font-body text-foreground">Obrigado! Entraremos em contacto brevemente.</p>
+              <p className="font-body text-foreground">{t.reservation.success}</p>
             </div>
           )}
         </motion.form>
