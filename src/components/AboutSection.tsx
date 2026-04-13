@@ -10,6 +10,8 @@ const images = [espacoImg, cocktailsImg, experienciasImg, naturezaImg];
 const alts = ['O Espaço — Terraço Avioso', 'Bar de Cocktails', 'Sala de jogos e eventos', 'Entretenimento — Snooker e DJ'];
 
 const AboutSection = () => {
+  const { t } = useLang();
+  const items = t.space.items;
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
