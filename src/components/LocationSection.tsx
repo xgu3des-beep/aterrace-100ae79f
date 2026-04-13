@@ -1,7 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLang } from '@/contexts/LangContext';
-import { Clock, Phone, Mail, MapPin } from 'lucide-react';
 
 const LocationSection = () => {
   const { t } = useLang();
@@ -10,7 +9,7 @@ const LocationSection = () => {
 
   return (
     <section id="contacto" className="border-t border-border">
-      <div className="py-24 md:py-32 bg-warm">
+      <div className="py-24 md:py-32">
         <div className="container mx-auto px-6" ref={ref}>
           <motion.div
             className="text-center mb-16"
@@ -26,60 +25,37 @@ const LocationSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Hours */}
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <motion.div
-              className="bg-card border border-border rounded-lg p-8 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.1 }}
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <Clock className="w-5 h-5 text-gold" />
-              </div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-4">{t.location.hours}</h3>
-              <ul className="space-y-2">
-                {t.location.hoursList.map((h, i) => (
-                  <li key={i} className="font-body text-sm text-muted-foreground">{h}</li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Contact */}
-            <motion.div
-              className="bg-card border border-border rounded-lg p-8 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              className="space-y-8"
+              initial={{ opacity: 0, x: -20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <Phone className="w-5 h-5 text-gold" />
+              <div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.hours}</h3>
+                <ul className="space-y-2">
+                  {t.location.hoursList.map((h, i) => (
+                    <li key={i} className="font-body text-sm text-muted-foreground">{h}</li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-4">{t.location.contact}</h3>
-              <div className="space-y-3">
-                <a href={`tel:${t.location.phone.replace(/\s/g, '')}`} className="font-body text-sm text-muted-foreground hover:text-gold transition-colors flex items-center justify-center gap-2">
-                  <Phone className="w-3.5 h-3.5" />
-                  {t.location.phone}
-                </a>
-                <a href={`mailto:${t.location.email}`} className="font-body text-sm text-muted-foreground hover:text-gold transition-colors flex items-center justify-center gap-2">
-                  <Mail className="w-3.5 h-3.5" />
-                  {t.location.email}
-                </a>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.contact}</h3>
+                <p className="font-body text-sm text-muted-foreground mb-1">{t.location.phone}</p>
+                <p className="font-body text-sm text-muted-foreground">{t.location.email}</p>
+              </div>
+              <div>
+                <p className="font-body text-sm text-muted-foreground">📍 {t.location.address}</p>
               </div>
             </motion.div>
 
-            {/* Address + CTA */}
             <motion.div
-              className="bg-card border border-border rounded-lg p-8 text-center flex flex-col"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              className="space-y-8"
+              initial={{ opacity: 0, x: 20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <MapPin className="w-5 h-5 text-gold" />
-              </div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-4">Morada</h3>
-              <p className="font-body text-sm text-muted-foreground mb-6 flex-1">{t.location.address}</p>
               <a
                 href="#reservar"
                 className="inline-block gradient-red px-8 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity"
