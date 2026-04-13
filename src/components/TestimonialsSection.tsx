@@ -102,10 +102,8 @@ const TestimonialsSection = () => {
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
             {t.testimonials.label}
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground inline-flex items-center gap-3">
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-gold" />
-            {t.testimonials.title}
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-gold" />
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+            <span className="text-base md:text-2xl align-middle">✦</span> {t.testimonials.title} <span className="text-base md:text-2xl align-middle">✦</span>
           </h2>
         </motion.div>
 
