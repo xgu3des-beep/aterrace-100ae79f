@@ -4,41 +4,10 @@ import espacoImg from '@/assets/espaco.webp';
 import cocktailsImg from '@/assets/cocktails.webp';
 import experienciasImg from '@/assets/experiencias.webp';
 import naturezaImg from '@/assets/natureza.webp';
+import { useLang } from '@/contexts/LangContext';
 
-const items = [
-  {
-    title: 'Lounge Exterior',
-    emoji: '🌿',
-    description:
-      'Envolvida pela natureza do parque, a nossa ampla esplanada convida a momentos de pura descontração, com uma vista privilegiada sobre mais de 30 hectares de paisagem verde.',
-    img: espacoImg,
-    alt: 'O Espaço — Terraço Avioso',
-  },
-  {
-    title: 'O Bar',
-    emoji: '🍸',
-    description:
-      'Desde cocktails de autor refrescantes a snacks como cachorrinhos à moda do Porto, tapas variadas e uma das nossas especialidades: o clássico pastel de nata — o complemento perfeito para o seu café.',
-    img: cocktailsImg,
-    alt: 'Bar de Cocktails',
-  },
-  {
-    title: 'Sala de Convívio',
-    emoji: '👥',
-    description:
-      'Nos dias mais frescos, a nossa espaçosa sala oferece conforto e um ambiente social acolhedor. Todo o espaço foi pensado para momentos de lazer, seja em encontros casuais ou em eventos privados.',
-    img: experienciasImg,
-    alt: 'Sala de jogos e eventos',
-  },
-  {
-    title: 'Entretenimento',
-    emoji: '🎱',
-    description:
-      'Para uma experiência completa, oferecemos noites de música ao vivo e DJ sets, bem como uma zona de snooker premium — garantindo que cada visita se torna numa memória única.',
-    img: naturezaImg,
-    alt: 'Entretenimento — Snooker e DJ',
-  },
-];
+const images = [espacoImg, cocktailsImg, experienciasImg, naturezaImg];
+const alts = ['O Espaço — Terraço Avioso', 'Bar de Cocktails', 'Sala de jogos e eventos', 'Entretenimento — Snooker e DJ'];
 
 const AboutSection = () => {
   const [active, setActive] = useState(0);
