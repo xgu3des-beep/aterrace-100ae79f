@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLang } from '@/contexts/LangContext';
-import { Star } from 'lucide-react';
+import { Star, Sparkles } from 'lucide-react';
 import testimonialsBg from '@/assets/testimonials-bg.webp';
 
 const StarRating = ({ rating }: { rating: number }) => (
@@ -60,7 +60,6 @@ const TestimonialsColumn = ({
                   />
                   <div>
                     <p className="font-body text-sm font-semibold text-foreground">{item.author}</p>
-                    <p className="font-body text-xs text-muted-foreground">{item.location}</p>
                   </div>
                 </div>
                 <StarRating rating={item.rating} />
@@ -103,13 +102,15 @@ const TestimonialsSection = () => {
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
             {t.testimonials.label}
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground inline-flex items-center gap-3">
+            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-gold" />
             {t.testimonials.title}
+            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-gold" />
           </h2>
         </motion.div>
 
         <motion.div
-          className="flex items-center justify-center gap-2 mb-12"
+          className="flex items-center justify-center gap-3 mb-12"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -120,6 +121,16 @@ const TestimonialsSection = () => {
             <path fill="#FBBC05" d="M10.53 28.59a14.5 14.5 0 0 1 0-9.18l-7.98-6.19a24.0 24.0 0 0 0 0 21.56l7.98-6.19z"/>
             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
           </svg>
+          <div className="flex items-center gap-1.5">
+            <span className="font-body text-sm font-semibold text-foreground">4,3</span>
+            <div className="flex gap-0.5">
+              {[1, 2, 3, 4].map((s) => (
+                <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+              ))}
+              <Star className="w-3.5 h-3.5 text-yellow-400" style={{ clipPath: 'inset(0 70% 0 0)' }} />
+              <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400 absolute" style={{ clipPath: 'inset(0 70% 0 0)' }} />
+            </div>
+          </div>
           <span className="font-body text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
         </motion.div>
 
