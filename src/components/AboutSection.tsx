@@ -61,10 +61,10 @@ const AboutSection = () => {
         {/* Header — topo da secção sticky, centrado */}
         <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pb-6 border-b border-border/30 mb-8 text-center">
           <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
-            O Nosso Espaço
+            {t.space.label}
           </span>
           <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto">
-            Fundado em 2023 no coração do Parque de Avioso, o <em className="italic font-display text-foreground">terrace</em> está aberto todos os dias das 13h00 à 01h00 e dispõe de 500 lugares de estacionamento gratuito para toda a família.
+            {t.space.intro} <em className="italic font-display text-foreground">terrace</em> {t.space.introAfter}
           </p>
         </div>
 
