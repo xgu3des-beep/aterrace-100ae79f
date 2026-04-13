@@ -21,47 +21,49 @@ const LocationSection = () => {
               {t.location.label}
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-              {t.location.title}
+              {t.location.titleBefore}<em className="text-primary not-italic font-display italic">terrace</em>
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+            {/* Horário */}
             <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              className="space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.hours}</h3>
-                <ul className="space-y-2">
-                  {t.location.hoursList.map((h, i) => (
-                    <li key={i} className="font-body text-sm text-muted-foreground">{h}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.contact}</h3>
-                <p className="font-body text-sm text-muted-foreground mb-1">{t.location.phone}</p>
-                <p className="font-body text-sm text-muted-foreground">{t.location.email}</p>
-              </div>
-              <div>
-                <p className="font-body text-sm text-muted-foreground">📍 {t.location.address}</p>
-              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.hours}</h3>
+              <p className="font-body text-sm text-muted-foreground">{t.location.hoursText}</p>
             </motion.div>
 
+            {/* Contacto */}
             <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, x: 20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              className="space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
+              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.contact}</h3>
+              <p className="font-body text-sm text-muted-foreground mb-1">{t.location.phone}</p>
+              <p className="font-body text-sm text-muted-foreground mb-4">{t.location.email}</p>
               <a
-                href="#reservar"
+                href={`mailto:${t.location.email}`}
                 className="inline-block gradient-red px-8 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity"
               >
-                {t.nav.reservar}
+                {t.location.contactBtn}
               </a>
+            </motion.div>
+
+            {/* Morada */}
+            <motion.div
+              className="space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.addressLabel}</h3>
+              <p className="font-body text-sm text-muted-foreground">{t.location.address}</p>
             </motion.div>
           </div>
         </div>
