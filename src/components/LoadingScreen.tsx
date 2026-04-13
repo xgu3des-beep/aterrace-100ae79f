@@ -21,7 +21,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         >
           <div className="flex items-baseline gap-2">
             <motion.span
-              className="font-display text-5xl md:text-7xl font-bold tracking-wider text-foreground"
+              className="font-logo text-5xl md:text-7xl tracking-[0.15em] text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
