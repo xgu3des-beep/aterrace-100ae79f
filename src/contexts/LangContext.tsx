@@ -82,7 +82,7 @@ const translations = {
       submit: 'Confirmar Reserva',
     },
     location: {
-      label: 'Localização & Horário',
+      label: 'Encontre-nos',
       titleBefore: 'A noite começa no ',
       address: 'Parque de Avioso, R. Central da Carriça, 4745-309 Muro',
       addressLabel: 'Morada',
@@ -177,7 +177,7 @@ const translations = {
       submit: 'Confirm Reservation',
     },
     location: {
-      label: 'Location & Hours',
+      label: 'Find Us',
       titleBefore: 'The night begins at the ',
       address: 'Parque de Avioso, R. Central da Carriça, 4745-309 Muro',
       addressLabel: 'Address',
