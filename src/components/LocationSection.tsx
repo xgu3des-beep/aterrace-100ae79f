@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Clock, Phone, MapPin } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 
 const LocationSection = () => {
@@ -25,31 +26,33 @@ const LocationSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto text-center">
             {/* Horário */}
             <motion.div
-              className="space-y-4"
+              className="space-y-4 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.hours}</h3>
+              <Clock className="w-6 h-6 text-gold mb-1" />
+              <h3 className="font-display text-xl font-semibold text-foreground">{t.location.hours}</h3>
               <p className="font-body text-sm text-muted-foreground">{t.location.hoursText}</p>
             </motion.div>
 
             {/* Contacto */}
             <motion.div
-              className="space-y-4"
+              className="space-y-4 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.contact}</h3>
-              <p className="font-body text-sm text-muted-foreground mb-1">{t.location.phone}</p>
-              <p className="font-body text-sm text-muted-foreground mb-4">{t.location.email}</p>
+              <Phone className="w-6 h-6 text-gold mb-1" />
+              <h3 className="font-display text-xl font-semibold text-foreground">{t.location.contact}</h3>
+              <p className="font-body text-sm text-muted-foreground">{t.location.phone}</p>
+              <p className="font-body text-sm text-muted-foreground">{t.location.email}</p>
               <a
                 href={`mailto:${t.location.email}`}
-                className="inline-block gradient-red px-8 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity"
+                className="inline-block gradient-red px-8 py-3 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity mt-2"
               >
                 {t.location.contactBtn}
               </a>
@@ -57,12 +60,13 @@ const LocationSection = () => {
 
             {/* Morada */}
             <motion.div
-              className="space-y-4"
+              className="space-y-4 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <h3 className="font-display text-xl font-semibold text-foreground mb-4">{t.location.addressLabel}</h3>
+              <MapPin className="w-6 h-6 text-gold mb-1" />
+              <h3 className="font-display text-xl font-semibold text-foreground">{t.location.addressLabel}</h3>
               <p className="font-body text-sm text-muted-foreground">{t.location.address}</p>
             </motion.div>
           </div>
