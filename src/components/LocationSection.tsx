@@ -22,7 +22,7 @@ const LocationSection = () => {
               {t.location.label}
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-              {t.location.titleBefore}<em className="text-primary not-italic font-display italic">terrace</em>
+              {t.location.titleBefore}<em className="text-primary font-display italic">terrace</em>
             </h2>
           </motion.div>
 
@@ -71,6 +71,19 @@ const LocationSection = () => {
             </motion.div>
           </div>
         </div>
+      </div>
+
+      {/* Social Media Icons */}
+      <div className="flex justify-center items-center gap-8 py-12">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:opacity-80 transition-opacity">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:opacity-80 transition-opacity">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:opacity-80 transition-opacity">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </a>
       </div>
 
       {/* Full-width Google Map */}
