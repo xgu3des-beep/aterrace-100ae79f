@@ -127,8 +127,12 @@ const TestimonialsSection = () => {
               {[1, 2, 3, 4].map((s) => (
                 <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
               ))}
-              <Star className="w-3.5 h-3.5 text-yellow-400" style={{ clipPath: 'inset(0 70% 0 0)' }} />
-              <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400 absolute" style={{ clipPath: 'inset(0 70% 0 0)' }} />
+              <div className="relative w-3.5 h-3.5">
+                <Star className="w-3.5 h-3.5 text-muted-foreground/30 absolute inset-0" />
+                <div className="overflow-hidden" style={{ width: '30%' }}>
+                  <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                </div>
+              </div>
             </div>
           </div>
           <span className="font-body text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
