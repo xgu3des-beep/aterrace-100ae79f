@@ -56,10 +56,10 @@ const AboutSection = () => {
       </AnimatePresence>
 
       {/* Sticky viewport — pt-20 para compensar a navbar */}
-      <div className="sticky top-0 h-screen flex flex-col justify-start overflow-hidden pt-20">
+      <div className="sticky top-0 h-screen flex flex-col justify-start overflow-hidden pt-20 pb-6 md:pb-0">
 
         {/* Header — topo da secção sticky, centrado */}
-        <div className="w-full max-w-[90rem] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 pb-5 md:pb-6 border-b border-border/30 mb-5 md:mb-8 text-center">
+        <div className="w-full max-w-[90rem] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 pb-4 md:pb-6 border-b border-border/30 mb-5 md:mb-8 text-center">
           <span className="font-body text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-gold mb-2 block">
             {t.space.label}
           </span>
@@ -68,11 +68,11 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="w-full max-w-[90rem] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20 flex-1 min-h-0">
+        {/* Desktop layout: text + image side by side */}
+        <div className="hidden lg:flex w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 items-center gap-12 lg:gap-20 flex-1 min-h-0">
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
-
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -81,27 +81,25 @@ const AboutSection = () => {
                 exit={{ opacity: 0, y: -20, filter: 'blur(4px)' }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Emoji icon */}
                 <motion.span
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-                  className="block text-4xl sm:text-5xl md:text-6xl mb-4 md:mb-5"
+                  className="block text-5xl md:text-6xl mb-5"
                 >
                   {items[active].emoji}
                 </motion.span>
 
-                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
                   {items[active].title}
                 </h2>
 
-                <p className="font-body text-base sm:text-lg md:text-xl mt-4 md:mt-6 text-muted-foreground leading-relaxed max-w-md">
+                <p className="font-body text-lg md:text-xl mt-6 text-muted-foreground leading-relaxed max-w-md">
                   {items[active].description}
                 </p>
               </motion.div>
             </AnimatePresence>
 
-            {/* Step counter */}
             <AnimatePresence mode="wait">
               <motion.span
                 key={`step-${active}`}
@@ -109,15 +107,15 @@ const AboutSection = () => {
                 animate={{ opacity: 0.4, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="font-body text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mt-8 md:mt-12 block"
+                className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mt-12 block"
               >
                 {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-            </motion.span>
+              </motion.span>
             </AnimatePresence>
           </div>
 
           {/* Right: Image column */}
-          <div className="hidden lg:block flex-1 min-w-0 max-w-2xl">
+          <div className="flex-1 min-w-0 max-w-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -128,40 +126,60 @@ const AboutSection = () => {
                 style={{ y: imageY }}
                 className="relative"
               >
-                {/* Subtle glow behind image */}
                 <div className="absolute -inset-8 bg-primary/5 rounded-3xl blur-3xl" />
-
                 <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]">
-                  <img
-                    src={images[active]}
-                    alt={alts[active]}
-                    className="w-full h-auto block"
-                  />
-                  {/* Top gradient overlay for depth */}
+                  <img src={images[active]} alt={alts[active]} className="w-full h-auto block" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none" />
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
 
-          {/* Mobile: stacked image below text */}
-          <div className="lg:hidden absolute bottom-6 left-5 right-5 sm:left-8 sm:right-8">
-            <AnimatePresence mode="wait">
+        {/* Mobile/tablet layout: image on top, text below — both within sticky viewport */}
+        <div className="lg:hidden flex-1 min-h-0 flex flex-col w-full max-w-2xl mx-auto px-5 sm:px-8">
+          {/* Image — layered cross-fade */}
+          <div className="relative w-full h-44 sm:h-56 mb-5 sm:mb-7 rounded-xl overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6)]">
+            {items.map((_, idx) => (
+              <motion.img
+                key={`mobile-img-${idx}`}
+                src={images[idx]}
+                alt={alts[idx]}
+                animate={{ opacity: idx === active ? 1 : 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ))}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+
+          {/* Text — layered cross-fade */}
+          <div className="relative flex-1 min-h-0">
+            {items.map((item, idx) => (
               <motion.div
-                key={`mobile-${active}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.35, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="rounded-xl overflow-hidden"
+                key={`mobile-txt-${idx}`}
+                animate={{
+                  opacity: idx === active ? 1 : 0,
+                  y: idx === active ? 0 : 12,
+                }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                style={{ pointerEvents: idx === active ? 'auto' : 'none' }}
+                className="absolute inset-0"
               >
-                <img
-                  src={images[active]}
-                  alt={alts[active]}
-                  className="w-full h-32 sm:h-40 object-cover"
-                />
+                <span className="block text-3xl sm:text-4xl mb-3">{item.emoji}</span>
+                <h2 className="font-display text-[1.75rem] sm:text-3xl font-bold text-foreground leading-[1.15] tracking-tight">
+                  {item.title}
+                </h2>
+                <p className="font-body text-sm sm:text-base mt-3 text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
-            </AnimatePresence>
+            ))}
+
+            {/* Step counter */}
+            <span className="absolute bottom-0 left-0 font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground/60">
+              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+            </span>
           </div>
         </div>
       </div>
