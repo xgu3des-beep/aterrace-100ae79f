@@ -83,9 +83,9 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - desktop (mouse) */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
@@ -96,6 +96,27 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
           transition={{ repeat: Infinity, duration: 2 }}
         >
           <div className="w-1 h-2 bg-gold rounded-full" />
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll indicator - mobile (chevrons swipe up) */}
+      <motion.div
+        className="md:hidden absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0], opacity: [0.4, 1, 0.4] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          className="flex flex-col items-center"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--gold))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--gold))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-mt-3 opacity-60">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
         </motion.div>
       </motion.div>
     </section>
