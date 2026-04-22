@@ -86,29 +86,29 @@ const TestimonialsSection = () => {
   const thirdColumn = items.slice(6, 9);
 
   return (
-    <section id="testemunhos" className="py-24 md:py-32 bg-warm relative overflow-hidden">
+    <section id="testemunhos" className="py-16 md:py-32 bg-warm relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-60"
           style={{ backgroundImage: `url(${testimonialsBg})` }}
         />
         <div className="absolute inset-0 bg-background/35" />
-      <div className="container mx-auto px-6 relative z-10" ref={ref}>
+      <div className="container mx-auto px-5 sm:px-6 relative z-10" ref={ref}>
         <motion.div
           className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
+          <span className="font-body text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-gold mb-3 sm:mb-4 block">
             {t.testimonials.label}
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            <span className="text-base md:text-2xl align-middle">✦</span> {t.testimonials.title} <span className="text-base md:text-2xl align-middle">✦</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+            <span className="text-sm sm:text-base md:text-2xl align-middle">✦</span> {t.testimonials.title} <span className="text-sm sm:text-base md:text-2xl align-middle">✦</span>
           </h2>
         </motion.div>
 
         <motion.div
-          className="flex items-center justify-center gap-3 mb-12"
+          className="flex items-center justify-center gap-2 sm:gap-3 mb-8 md:mb-12 flex-wrap"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -133,12 +133,12 @@ const TestimonialsSection = () => {
               </div>
             </div>
           </div>
-          <span className="font-body text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
+          <span className="font-body text-xs sm:text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
         </motion.div>
 
-        <div className="flex justify-center gap-6 max-w-6xl mx-auto h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        <div className="flex justify-center gap-4 sm:gap-6 max-w-6xl mx-auto h-[460px] sm:h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
           <TestimonialsColumn testimonials={firstColumn} duration={18} className="hidden md:block w-1/3" />
-          <TestimonialsColumn testimonials={secondColumn} duration={22} className="w-full md:w-1/3" />
+          <TestimonialsColumn testimonials={secondColumn} duration={22} className="w-full max-w-sm md:max-w-none md:w-1/3" />
           <TestimonialsColumn testimonials={thirdColumn} duration={16} className="hidden lg:block w-1/3" />
         </div>
       </div>

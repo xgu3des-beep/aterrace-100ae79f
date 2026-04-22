@@ -38,26 +38,26 @@ const LocationSection = () => {
 
   return (
     <section id="contacto" className="border-t border-border">
-      <div className="py-24 md:py-32">
-        <div className="container mx-auto px-6" ref={ref}>
+      <div className="py-16 md:py-32">
+        <div className="container mx-auto px-5 sm:px-6" ref={ref}>
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
+            <span className="font-body text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-gold mb-3 sm:mb-4 block">
               {t.location.label}
             </span>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               {t.location.titleBefore}<TypewriterText text="terrace" trigger={inView} />
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto text-center">
             {/* Horário */}
             <motion.div
-              className="space-y-4 flex flex-col items-center"
+              className="space-y-3 md:space-y-4 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -69,7 +69,7 @@ const LocationSection = () => {
 
             {/* Contacto */}
             <motion.div
-              className="space-y-4 flex flex-col items-center"
+              className="space-y-3 md:space-y-4 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -77,7 +77,7 @@ const LocationSection = () => {
               <Phone className="w-6 h-6 text-gold mb-1" />
               <h3 className="font-display text-xl font-semibold text-foreground">{t.location.contact}</h3>
               <p className="font-body text-sm text-muted-foreground">{t.location.phone}</p>
-              <p className="font-body text-sm text-muted-foreground">{t.location.email}</p>
+              <p className="font-body text-sm text-muted-foreground break-all">{t.location.email}</p>
               <div className="flex justify-center items-center gap-4 mt-2">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:opacity-80 transition-opacity">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -99,7 +99,7 @@ const LocationSection = () => {
 
             {/* Morada */}
             <motion.div
-              className="space-y-4 flex flex-col items-center"
+              className="space-y-3 md:space-y-4 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -118,7 +118,8 @@ const LocationSection = () => {
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.8505805827026!2d-8.614128587980682!3d41.29035630188806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd245d6cbadb2cdb%3A0x218d4931ba2d2bf9!2sAvioso%20Terrace!5e0!3m2!1spt-PT!2spt!4v1775481659310!5m2!1spt-PT!2spt"
           width="100%"
-          height="450"
+          height="320"
+          className="md:h-[450px] block"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"

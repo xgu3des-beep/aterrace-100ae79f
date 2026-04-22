@@ -29,9 +29,9 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, delay: 2.8 }}
     >
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-baseline gap-1.5">
-          <span className="font-logo text-xl tracking-[0.15em] text-foreground">AVIOSO</span>
+      <div className="container mx-auto flex items-center justify-between px-5 sm:px-6 py-3 md:py-4 gap-2">
+        <a href="#" className="flex items-baseline gap-1.5 shrink-0">
+          <span className="font-logo text-lg sm:text-xl tracking-[0.15em] text-foreground">AVIOSO</span>
           <span className="font-display text-sm italic text-primary">terrace</span>
         </a>
 
@@ -62,21 +62,25 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1.5 md:hidden shrink-0">
           <a
             href="#reservar"
-            className="gradient-red px-3 py-1.5 text-xs font-semibold tracking-wide text-primary-foreground rounded"
+            className="gradient-red px-3 py-1.5 text-[11px] font-semibold tracking-wide text-primary-foreground rounded"
           >
             {t.nav.reservar}
           </a>
           <button
             onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
-            className="text-xs font-body tracking-widest text-muted-foreground border border-border px-2 py-1 rounded"
+            className="text-[11px] font-body tracking-widest text-muted-foreground border border-border px-2 py-1 rounded"
           >
             {lang === 'pt' ? 'EN' : 'PT'}
           </button>
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="text-foreground">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+            className="text-foreground p-1.5 -mr-1.5"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {mobileOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" />
               ) : (
