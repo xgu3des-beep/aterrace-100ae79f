@@ -179,7 +179,7 @@ const AboutSection = () => {
         {/* Mobile/tablet layout: image on top, text below — both within sticky viewport */}
         <div className="lg:hidden flex-1 min-h-0 flex flex-col w-full max-w-2xl mx-auto px-5 sm:px-8">
           {/* Image — continuous cross-fade */}
-          <div className="relative w-full h-44 sm:h-56 mb-5 sm:mb-7 rounded-xl overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6)]">
+          <div className="relative w-full h-40 xs:h-44 sm:h-56 mb-4 sm:mb-7 rounded-xl overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6)]">
             {items.map((_, idx) => {
               const state = getMobileLayerState(idx);
 
@@ -222,11 +222,11 @@ const AboutSection = () => {
                   }}
                   className="absolute inset-0"
                 >
-                  <span className="block text-3xl sm:text-4xl mb-3">{item.emoji}</span>
-                  <h2 className="font-display text-[1.75rem] sm:text-3xl font-bold text-foreground leading-[1.15] tracking-tight">
+                  <span className="block text-2xl sm:text-4xl mb-2 sm:mb-3">{item.emoji}</span>
+                  <h2 className="font-display text-[1.5rem] sm:text-3xl font-bold text-foreground leading-[1.15] tracking-tight">
                     {item.title}
                   </h2>
-                  <p className="font-body text-sm sm:text-base mt-3 text-muted-foreground leading-relaxed">
+                  <p className="font-body text-sm sm:text-base mt-2 sm:mt-3 text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
                 </motion.div>
