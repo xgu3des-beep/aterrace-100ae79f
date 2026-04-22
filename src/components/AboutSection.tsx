@@ -13,6 +13,7 @@ const AboutSection = () => {
   const { t } = useLang();
   const items = t.space.items;
   const [active, setActive] = useState(0);
+  const [mobileBlend, setMobileBlend] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -24,9 +25,48 @@ const AboutSection = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const idx = Math.min(Math.floor(v * items.length), items.length - 1);
+    const clamped = Math.max(0, Math.min(v, 0.9999));
+    const idx = Math.min(Math.floor(clamped * items.length), items.length - 1);
     setActive(idx);
+    setMobileBlend(clamped * items.length);
   });
+
+  const getMobileLayerState = (index: number) => {
+    const transitionWindow = 0.28;
+    const holdEnd = index + (1 - transitionWindow);
+    const nextStart = index + 1;
+    const prevStart = index - transitionWindow;
+
+    if (index === items.length - 1 && mobileBlend >= index) {
+      return { opacity: 1, y: 0, scale: 1, zIndex: items.length + 1 };
+    }
+
+    if (mobileBlend >= index && mobileBlend <= holdEnd) {
+      return { opacity: 1, y: 0, scale: 1, zIndex: items.length + 1 };
+    }
+
+    if (mobileBlend > holdEnd && mobileBlend < nextStart) {
+      const progress = (mobileBlend - holdEnd) / transitionWindow;
+      return {
+        opacity: 1 - progress,
+        y: -10 * progress,
+        scale: 1 - 0.02 * progress,
+        zIndex: items.length,
+      };
+    }
+
+    if (mobileBlend >= prevStart && mobileBlend < index) {
+      const progress = (mobileBlend - prevStart) / transitionWindow;
+      return {
+        opacity: progress,
+        y: 10 * (1 - progress),
+        scale: 0.98 + 0.02 * progress,
+        zIndex: items.length + 2,
+      };
+    }
+
+    return { opacity: 0, y: 16, scale: 0.97, zIndex: 0 };
+  };
 
   return (
     <section
@@ -138,46 +178,63 @@ const AboutSection = () => {
 
         {/* Mobile/tablet layout: image on top, text below — both within sticky viewport */}
         <div className="lg:hidden flex-1 min-h-0 flex flex-col w-full max-w-2xl mx-auto px-5 sm:px-8">
-          {/* Image — layered cross-fade */}
+          {/* Image — continuous cross-fade */}
           <div className="relative w-full h-44 sm:h-56 mb-5 sm:mb-7 rounded-xl overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6)]">
-            {items.map((_, idx) => (
-              <motion.img
-                key={`mobile-img-${idx}`}
-                src={images[idx]}
-                alt={alts[idx]}
-                animate={{ opacity: idx === active ? 1 : 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+            {items.map((_, idx) => {
+              const state = getMobileLayerState(idx);
+
+              return (
+                <motion.img
+                  key={`mobile-img-${idx}`}
+                  src={images[idx]}
+                  alt={alts[idx]}
+                  animate={{
+                    opacity: state.opacity,
+                    y: state.y,
+                    scale: state.scale,
+                  }}
+                  transition={{ duration: 0.18, ease: 'easeOut' }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ zIndex: state.zIndex }}
+                />
+              );
+            })}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none z-20" />
           </div>
 
-          {/* Text — layered cross-fade */}
+          {/* Text — continuous cross-fade */}
           <div className="relative flex-1 min-h-0">
-            {items.map((item, idx) => (
-              <motion.div
-                key={`mobile-txt-${idx}`}
-                animate={{
-                  opacity: idx === active ? 1 : 0,
-                  y: idx === active ? 0 : 12,
-                }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                style={{ pointerEvents: idx === active ? 'auto' : 'none' }}
-                className="absolute inset-0"
-              >
-                <span className="block text-3xl sm:text-4xl mb-3">{item.emoji}</span>
-                <h2 className="font-display text-[1.75rem] sm:text-3xl font-bold text-foreground leading-[1.15] tracking-tight">
-                  {item.title}
-                </h2>
-                <p className="font-body text-sm sm:text-base mt-3 text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+            {items.map((item, idx) => {
+              const state = getMobileLayerState(idx);
+
+              return (
+                <motion.div
+                  key={`mobile-txt-${idx}`}
+                  animate={{
+                    opacity: state.opacity,
+                    y: state.y,
+                    scale: state.scale,
+                  }}
+                  transition={{ duration: 0.18, ease: 'easeOut' }}
+                  style={{
+                    pointerEvents: idx === active ? 'auto' : 'none',
+                    zIndex: state.zIndex,
+                  }}
+                  className="absolute inset-0"
+                >
+                  <span className="block text-3xl sm:text-4xl mb-3">{item.emoji}</span>
+                  <h2 className="font-display text-[1.75rem] sm:text-3xl font-bold text-foreground leading-[1.15] tracking-tight">
+                    {item.title}
+                  </h2>
+                  <p className="font-body text-sm sm:text-base mt-3 text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
+              );
+            })}
 
             {/* Step counter */}
-            <span className="absolute bottom-0 left-0 font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground/60">
+            <span className="absolute bottom-0 left-0 font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground/60 z-30">
               {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
             </span>
           </div>
