@@ -143,4 +143,19 @@ html {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+
+  /* Ensure sections don't hide behind the fixed navbar when navigating */
+  section[id] {
+    scroll-margin-top: 64px;
+  }
+
+  /* Better tap targets */
+  a, button {
+    touch-action: manipulation;
+  }
+
+  /* Prevent text overflow on very small screens */
+  .container {
+    word-break: break-word;
+  }
 }
