@@ -138,59 +138,48 @@ const AboutSection = () => {
 
         {/* Mobile/tablet layout: image on top, text below — both within sticky viewport */}
         <div className="lg:hidden flex-1 min-h-0 flex flex-col w-full max-w-2xl mx-auto px-5 sm:px-8">
-          {/* Image */}
-          <div className="relative w-full mb-5 sm:mb-7">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`mobile-img-${active}`}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative rounded-xl overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6)]"
-              >
-                <img
-                  src={images[active]}
-                  alt={alts[active]}
-                  className="w-full h-44 sm:h-56 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
-              </motion.div>
-            </AnimatePresence>
+          {/* Image — layered cross-fade */}
+          <div className="relative w-full h-44 sm:h-56 mb-5 sm:mb-7 rounded-xl overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6)]">
+            {items.map((_, idx) => (
+              <motion.img
+                key={`mobile-img-${idx}`}
+                src={images[idx]}
+                alt={alts[idx]}
+                animate={{ opacity: idx === active ? 1 : 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ))}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Text */}
-          <div className="flex-1 min-h-0 flex flex-col">
-            <AnimatePresence mode="wait">
+          {/* Text — layered cross-fade */}
+          <div className="relative flex-1 min-h-0">
+            {items.map((item, idx) => (
               <motion.div
-                key={`mobile-txt-${active}`}
-                initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+                key={`mobile-txt-${idx}`}
+                animate={{
+                  opacity: idx === active ? 1 : 0,
+                  y: idx === active ? 0 : 12,
+                }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                style={{ pointerEvents: idx === active ? 'auto' : 'none' }}
+                className="absolute inset-0"
               >
-                <span className="block text-3xl sm:text-4xl mb-3">{items[active].emoji}</span>
+                <span className="block text-3xl sm:text-4xl mb-3">{item.emoji}</span>
                 <h2 className="font-display text-[1.75rem] sm:text-3xl font-bold text-foreground leading-[1.15] tracking-tight">
-                  {items[active].title}
+                  {item.title}
                 </h2>
                 <p className="font-body text-sm sm:text-base mt-3 text-muted-foreground leading-relaxed">
-                  {items[active].description}
+                  {item.description}
                 </p>
               </motion.div>
-            </AnimatePresence>
+            ))}
 
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={`mobile-step-${active}`}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 0.5, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-auto pt-5 block"
-              >
-                {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-              </motion.span>
-            </AnimatePresence>
+            {/* Step counter */}
+            <span className="absolute bottom-0 left-0 font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground/60">
+              {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+            </span>
           </div>
         </div>
       </div>
