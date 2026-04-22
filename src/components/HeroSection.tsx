@@ -32,29 +32,29 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-5 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
         >
-          <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">
-            <MapPin className="w-3.5 h-3.5" />
+          <span className="inline-flex items-center gap-2 font-body text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-gold mb-5 sm:mb-6">
+            <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             {t.hero.locationBadge}
           </span>
         </motion.div>
 
         <motion.h1
-          className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground"
+          className="font-display text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-5 sm:mb-6 text-foreground break-words"
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
           animate={ready ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.92, y: 20 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="text-base md:text-2xl align-middle">✦</span> {t.hero.headline} <span className="text-base md:text-2xl align-middle">✦</span>
+          <span className="text-sm sm:text-base md:text-2xl align-middle">✦</span> {t.hero.headline} <span className="text-sm sm:text-base md:text-2xl align-middle">✦</span>
         </motion.h1>
 
         <motion.p
-          className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
@@ -63,20 +63,20 @@ const HeroSection = ({ ready = false }: { ready?: boolean }) => {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.55, ease: 'easeOut' }}
         >
           <a
             href="#reservar"
-            className="gradient-red px-8 py-3.5 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity"
+            className="gradient-red w-full sm:w-auto px-8 py-3.5 font-body text-sm font-semibold tracking-wide text-primary-foreground rounded hover:opacity-90 transition-opacity text-center"
           >
             {t.hero.cta}
           </a>
           <a
             href="#menu"
-            className="border border-border px-8 py-3.5 font-body text-sm font-semibold tracking-wide text-foreground rounded hover:border-gold hover:text-gold transition-colors"
+            className="border border-border w-full sm:w-auto px-8 py-3.5 font-body text-sm font-semibold tracking-wide text-foreground rounded hover:border-gold hover:text-gold transition-colors text-center"
           >
             {t.hero.cta2}
           </a>

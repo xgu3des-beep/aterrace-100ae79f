@@ -22,21 +22,21 @@ const CocktailsSection = () => {
   const allImages = [...cocktailImages, ...cocktailImages];
 
   return (
-    <section id="galeria" className="pt-4 pb-16 md:pt-6 md:pb-24 overflow-hidden scroll-mt-20">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="galeria" className="pt-6 pb-16 md:pt-6 md:pb-24 overflow-hidden scroll-mt-20">
+      <div className="container mx-auto px-5 sm:px-6" ref={ref}>
         <motion.div
           className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
+          <span className="font-body text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-gold mb-3 sm:mb-4 block">
             {t.cocktails.label}
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            <span className="text-base md:text-2xl align-middle">✦</span> {t.cocktails.title} <span className="text-base md:text-2xl align-middle">✦</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+            <span className="text-sm sm:text-base md:text-2xl align-middle">✦</span> {t.cocktails.title} <span className="text-sm sm:text-base md:text-2xl align-middle">✦</span>
           </h2>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
             {t.cocktails.sub}
           </p>
         </motion.div>
@@ -50,13 +50,13 @@ const CocktailsSection = () => {
       >
         <div className="relative w-full">
           <div
-            className="flex gap-4 animate-[scroll-left_40s_linear_infinite]"
+            className="flex gap-3 sm:gap-4 animate-[scroll-left_40s_linear_infinite]"
             style={{ width: 'max-content' }}
           >
             {allImages.map((src, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-80 h-[26rem] md:w-96 md:h-[30rem] rounded-lg overflow-hidden"
+                className="flex-shrink-0 w-56 h-72 sm:w-72 sm:h-96 md:w-96 md:h-[30rem] rounded-lg overflow-hidden"
               >
                 <img
                   src={src}

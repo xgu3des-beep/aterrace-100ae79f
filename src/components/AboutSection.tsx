@@ -55,20 +55,20 @@ const AboutSection = () => {
         />
       </AnimatePresence>
 
-      {/* Sticky viewport — pt-16 para compensar a navbar */}
+      {/* Sticky viewport — pt-20 para compensar a navbar */}
       <div className="sticky top-0 h-screen flex flex-col justify-start overflow-hidden pt-20">
 
         {/* Header — topo da secção sticky, centrado */}
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 pb-6 border-b border-border/30 mb-8 text-center">
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-2 block">
+        <div className="w-full max-w-[90rem] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 pb-5 md:pb-6 border-b border-border/30 mb-5 md:mb-8 text-center">
+          <span className="font-body text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-gold mb-2 block">
             {t.space.label}
           </span>
-          <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t.space.intro} <em className="italic font-display text-foreground">terrace</em> {t.space.introAfter}
           </p>
         </div>
 
-        <div className="w-full max-w-[90rem] mx-auto px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20 flex-1 min-h-0">
+        <div className="w-full max-w-[90rem] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 flex items-center gap-12 lg:gap-20 flex-1 min-h-0">
 
           {/* Left: Text column */}
           <div className="flex-1 min-w-0 max-w-lg">
@@ -86,16 +86,16 @@ const AboutSection = () => {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-                  className="block text-5xl md:text-6xl mb-5"
+                  className="block text-4xl sm:text-5xl md:text-6xl mb-4 md:mb-5"
                 >
                   {items[active].emoji}
                 </motion.span>
 
-                <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
                   {items[active].title}
                 </h2>
 
-                <p className="font-body text-lg md:text-xl mt-6 text-muted-foreground leading-relaxed max-w-md">
+                <p className="font-body text-base sm:text-lg md:text-xl mt-4 md:mt-6 text-muted-foreground leading-relaxed max-w-md">
                   {items[active].description}
                 </p>
               </motion.div>
@@ -109,7 +109,7 @@ const AboutSection = () => {
                 animate={{ opacity: 0.4, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mt-12 block"
+                className="font-body text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mt-8 md:mt-12 block"
               >
                 {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
             </motion.span>
@@ -145,12 +145,12 @@ const AboutSection = () => {
           </div>
 
           {/* Mobile: stacked image below text */}
-          <div className="lg:hidden absolute bottom-8 left-8 right-8">
+          <div className="lg:hidden absolute bottom-6 left-5 right-5 sm:left-8 sm:right-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`mobile-${active}`}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.3, y: 0 }}
+                animate={{ opacity: 0.35, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 className="rounded-xl overflow-hidden"
@@ -158,7 +158,7 @@ const AboutSection = () => {
                 <img
                   src={images[active]}
                   alt={alts[active]}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-32 sm:h-40 object-cover"
                 />
               </motion.div>
             </AnimatePresence>
