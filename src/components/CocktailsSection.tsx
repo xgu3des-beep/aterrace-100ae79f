@@ -56,7 +56,7 @@ const CocktailsSection = () => {
             {allImages.map((src, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-60 h-80 sm:w-72 sm:h-96 md:w-96 md:h-[30rem] rounded-lg overflow-hidden"
+                className="flex-shrink-0 w-80 h-[26rem] md:w-96 md:h-[30rem] rounded-lg overflow-hidden"
               >
                 <img
                   src={src}
