@@ -136,7 +136,7 @@ const TestimonialsSection = () => {
           <span className="font-body text-xs sm:text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
         </motion.div>
 
-        <div className="flex justify-center gap-4 sm:gap-6 max-w-6xl mx-auto h-[460px] sm:h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        <div className="flex justify-center gap-4 sm:gap-6 max-w-6xl mx-auto h-[420px] sm:h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
           <TestimonialsColumn testimonials={firstColumn} duration={18} className="hidden md:block w-1/3" />
           <TestimonialsColumn testimonials={secondColumn} duration={22} className="w-full max-w-sm md:max-w-none md:w-1/3" />
           <TestimonialsColumn testimonials={thirdColumn} duration={16} className="hidden lg:block w-1/3" />
