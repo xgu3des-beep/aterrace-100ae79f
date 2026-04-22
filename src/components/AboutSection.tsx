@@ -13,6 +13,7 @@ const AboutSection = () => {
   const { t } = useLang();
   const items = t.space.items;
   const [active, setActive] = useState(0);
+  const [mobileBlend, setMobileBlend] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -24,9 +25,48 @@ const AboutSection = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const idx = Math.min(Math.floor(v * items.length), items.length - 1);
+    const clamped = Math.max(0, Math.min(v, 0.9999));
+    const idx = Math.min(Math.floor(clamped * items.length), items.length - 1);
     setActive(idx);
+    setMobileBlend(clamped * items.length);
   });
+
+  const getMobileLayerState = (index: number) => {
+    const transitionWindow = 0.28;
+    const holdEnd = index + (1 - transitionWindow);
+    const nextStart = index + 1;
+    const prevStart = index - transitionWindow;
+
+    if (index === items.length - 1 && mobileBlend >= index) {
+      return { opacity: 1, y: 0, scale: 1, zIndex: items.length + 1 };
+    }
+
+    if (mobileBlend >= index && mobileBlend <= holdEnd) {
+      return { opacity: 1, y: 0, scale: 1, zIndex: items.length + 1 };
+    }
+
+    if (mobileBlend > holdEnd && mobileBlend < nextStart) {
+      const progress = (mobileBlend - holdEnd) / transitionWindow;
+      return {
+        opacity: 1 - progress,
+        y: -10 * progress,
+        scale: 1 - 0.02 * progress,
+        zIndex: items.length,
+      };
+    }
+
+    if (mobileBlend >= prevStart && mobileBlend < index) {
+      const progress = (mobileBlend - prevStart) / transitionWindow;
+      return {
+        opacity: progress,
+        y: 10 * (1 - progress),
+        scale: 0.98 + 0.02 * progress,
+        zIndex: items.length + 2,
+      };
+    }
+
+    return { opacity: 0, y: 16, scale: 0.97, zIndex: 0 };
+  };
 
   return (
     <section
