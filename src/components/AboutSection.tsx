@@ -32,8 +32,8 @@ const AboutSection = () => {
     <section
       id="conceito"
       ref={sectionRef}
-      className="relative"
-      style={{ height: `${items.length * 100}vh` }}
+      className="relative h-[280vh] md:h-[400vh]"
+      style={{ height: undefined }}
     >
       {/* Ambient background that shifts per card */}
       <AnimatePresence mode="wait">
