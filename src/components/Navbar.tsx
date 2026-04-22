@@ -62,7 +62,13 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
+          <a
+            href="#reservar"
+            className="gradient-red px-3 py-1.5 text-xs font-semibold tracking-wide text-primary-foreground rounded"
+          >
+            {t.nav.reservar}
+          </a>
           <button
             onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
             className="text-xs font-body tracking-widest text-muted-foreground border border-border px-2 py-1 rounded"
@@ -98,13 +104,6 @@ const Navbar = () => {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#reservar"
-              onClick={() => setMobileOpen(false)}
-              className="gradient-red text-center px-5 py-2.5 text-sm font-semibold text-primary-foreground rounded"
-            >
-              {t.nav.reservar}
-            </a>
           </div>
         </motion.div>
       )}
