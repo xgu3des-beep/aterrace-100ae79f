@@ -54,7 +54,7 @@ const LocationSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-5xl mx-auto text-center">
             {/* Horário */}
             <motion.div
               className="space-y-3 md:space-y-4 flex flex-col items-center"
