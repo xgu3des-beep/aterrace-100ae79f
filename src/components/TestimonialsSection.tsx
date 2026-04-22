@@ -86,7 +86,7 @@ const TestimonialsSection = () => {
   const thirdColumn = items.slice(6, 9);
 
   return (
-    <section id="testemunhos" className="py-24 md:py-32 bg-warm relative overflow-hidden">
+    <section id="testemunhos" className="py-16 md:py-32 bg-warm relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-60"
           style={{ backgroundImage: `url(${testimonialsBg})` }}
@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <motion.div
-          className="flex items-center justify-center gap-3 mb-12"
+          className="flex items-center justify-center flex-wrap gap-2 sm:gap-3 mb-10 md:mb-12"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -136,7 +136,7 @@ const TestimonialsSection = () => {
           <span className="font-body text-sm text-muted-foreground">{t.testimonials.googleLabel}</span>
         </motion.div>
 
-        <div className="flex justify-center gap-6 max-w-6xl mx-auto h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        <div className="flex justify-center gap-4 md:gap-6 max-w-6xl mx-auto h-[460px] md:h-[500px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
           <TestimonialsColumn testimonials={firstColumn} duration={18} className="hidden md:block w-1/3" />
           <TestimonialsColumn testimonials={secondColumn} duration={22} className="w-full md:w-1/3" />
           <TestimonialsColumn testimonials={thirdColumn} duration={16} className="hidden lg:block w-1/3" />
